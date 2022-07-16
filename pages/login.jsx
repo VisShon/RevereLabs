@@ -6,7 +6,7 @@ import LoginCard from '../components/LogInCard'
 function Login() {
   return (
     <>
-      <Progress/>
+      {/* <Progress/> */}
       <LoginCard/>
 
     </>
