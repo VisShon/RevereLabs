@@ -1,0 +1,12 @@
+.container{
+    display:flex;
+    height: 100vh;
+    flex-direction:column; 
+    align-items: center; 
+    justify-content: center;
+    background-image: url('/rectangle.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position-x: 16rem;
+    background-position-y: 13rem;
+}
