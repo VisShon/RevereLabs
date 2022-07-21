@@ -1,5 +1,5 @@
 import  passport  from "passport";
-import { connect } from "../../../config/database";
+import connect  from "../../../config/database";
 import '../../../config/passport';
 
 
