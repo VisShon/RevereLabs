@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@coinbase/wallet-sdk": "^3.4.0",
+    "@walletconnect/web3-provider": "^1.7.8",
     "cookies-next": "^2.1.1",
     "dotenv": "^16.0.1",
     "gun": "^0.2020.1237",
@@ -19,7 +21,9 @@
     "passport-google-oauth2": "^0.2.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "sass": "^1.53.0"
+    "sass": "^1.53.0",
+    "web3": "^1.7.4",
+    "web3modal": "^1.9.8"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.7",

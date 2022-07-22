@@ -10,5 +10,5 @@ export default async function(req, res, next) {
 
         setCookies('token',info.token,{req,res});
         res.redirect('http://localhost:3000/login')
-    });
+    })(req, res, next);
 }

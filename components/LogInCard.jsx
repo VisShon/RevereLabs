@@ -3,13 +3,12 @@ import Image from 'next/image'
 import steps from '../data/loginSteps.json'
 
 function LogInCard({setStepsDone,stepsDone}) {
+  const [data,setData] = useState(steps[stepsDone-1]);
   const onclickHandler = () => {
-    setStepsDone(stepsDone++);
-    currStep++;
-    setData(steps[currStep]);
+    var j = stepsDone+1;
+    setStepsDone(j);
+    setData(steps[stepsDone]);
   }
-  var currStep = 0;
-  const [data,setData] = useState(steps[currStep]);
   return (
     <>
       <div className=" flex flex-col justify-evenly items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
