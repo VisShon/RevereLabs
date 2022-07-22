@@ -12,7 +12,7 @@
     "logo":"/Metamask.png",
     "title":"Connect",
     "titleHighlighted":" Metamask wallet",
-    "linkUrl":"#",
+    "linkUrl":"/api/metamask",
     "color":"#1178D7",
     "backgroundColor":"#D26F00",
     "description":"we need your Metamask Wallets for setting up the escrow services only when you sign an agreement."},
