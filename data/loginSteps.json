@@ -3,7 +3,7 @@
     "logo":"/google.png",
     "title":"Connect",
     "titleHighlighted":" Google account",
-    "linkUrl":"/api/google",
+    "linkUrl":"/api/metamask",
     "color":"#008A61",
     "backgroundColor":"#ffffff",
     "description":"we need your google credentials to connect you to freelancers and identify you as a client."},
