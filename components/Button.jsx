@@ -2,13 +2,14 @@ import React from 'react'
 import styles from '../styles/Button.module.scss'
 import Image from 'next/image'
 
-function Button({Content, onClick, Link='#'}) {
+function Button({Content, onClick, Link=''}) {
   return (
-    <div>
+      Link=='null'? <a onClick={onClick} className={styles.button}>
+        {Content}
+      </a>:
       <a onClick={onClick} className={styles.button} href={Link}>
         {Content}
       </a>
-    </div>
   )
 }
 

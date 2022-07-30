@@ -1,5 +1,5 @@
 import React from 'react'
-import DashButton from '../components/dashBoardButton'
+import DashButton from '../components/DashBoardButton'
 import Image from 'next/image'
 import BG from '../public/dashBoardbG.png'
 function DashBoard() {
