@@ -18,9 +18,9 @@ function NewProjectCard() {
                 Connect to Daos
                 <input type="checkbox" className="rounded-[5px] h-[1rem] w-[1rem] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] mx-2"></input>
             </span>
-
-
         </div>
+
+        
 
         <AddMember/>
     </div>
