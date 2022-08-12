@@ -1,6 +1,6 @@
 import React from 'react'
 import Image from 'next/image'
-import edit from '../public/edit.png'
+
 function ProjectCard({isGigActive=false,jobTitle,amount,descp}) {
   return (
     <div className=" w-[15rem]  h-[20rem] p-5 mx-10 my-10 border-2 rounded-md font-mada cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] bg-[#ffffff]">

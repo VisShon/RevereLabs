@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import Image from 'next/Image'
-import Filter from '../others/Filter'
+import Filter from './others/Filter'
 
 function FilterButton() {
 

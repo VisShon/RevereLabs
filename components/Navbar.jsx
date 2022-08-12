@@ -1,5 +1,5 @@
 import React from 'react'
-import Button from '../components/Button'
+import Button from './Button'
 import Logo from '../public/logo.png'
 import '../pages/_document'
 function Navbar() {

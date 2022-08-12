@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import NewProjectCard from '../components/NewProjectCard'
-import Progress from '../components/Progress'
+import Progress from '../components/main/Progress'
 import Button from '../components/Button'
 
 function CreateProject() {

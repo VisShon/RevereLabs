@@ -1,5 +1,4 @@
 import React,{useState} from 'react'
-import DaoCard from '../components/main/DaoCard'
 
 function componentTester() {
 
@@ -7,7 +6,6 @@ function componentTester() {
 
     return (
     <>
-        <DaoCard/>
     </>
   )
 }
