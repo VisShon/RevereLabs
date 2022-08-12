@@ -1,6 +1,7 @@
 import React,{useState} from 'react'
 import Image from 'next/Image'
 
+let data=[]
 function LinkCarousel() {
 
 
@@ -15,7 +16,6 @@ function LinkCarousel() {
   const[userLinks,setUserLinks] = useState([])
   const[addLink,setAddLink] = useState(false)
 
-  let data=[]
 
   const onclickHandler = (title,logo,link) =>{
     const newData = {title:title,logo:logo,link:link};
@@ -27,9 +27,9 @@ function LinkCarousel() {
 
   return (
     <>
-      {userLinks.map((item,index)=>(<a key={index} href={item.link} className="w-[12rem] flex justify-between h-[2.5rem] z-[10] p-1 border-2 rounded-md cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)]   bg-[#ffffff]">
+      {userLinks.map((item,index)=>(<a key={index} href={item.link} className="w-[12rem] flex justify-between h-[2.5rem] z-[10] p-1 border-2 rounded-md cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] mt-5 bg-[#ffffff]">
             <h2 className="text-textSecondary font-[600]">{item.title}</h2>
-            <Image src={item.logo} height={25} width={25} />
+            <Image src={item.logo} height={20} width={25} />
       </a>))}
 
       {
