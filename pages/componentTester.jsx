@@ -1,11 +1,12 @@
 import React,{useState} from 'react'
-import ChatWindow from '../components/ChatWindow'
+import AgreementPortal from '../components/AgreementPortal'
+
 
 function componentTester() {
 
     return (
     <>
-      <ChatWindow/>
+      <AgreementPortal/>
     </>
   )
 }
