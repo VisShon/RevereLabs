@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
-import SearchBar from '../components/main/SearchBar'
+import DaoCard from '../components/main/DaoCard'
+
 function componentTester() {
 
     const[searchParam,setSearchParam] = useState("")
 
     return (
     <>
-        <SearchBar searchParam={searchParam} setSearchParam={setSearchParam}/>
+        <DaoCard/>
     </>
   )
 }
