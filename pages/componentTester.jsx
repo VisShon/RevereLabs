@@ -1,11 +1,11 @@
 import React,{useState} from 'react'
+import LinkCarousel from '../components/LinkCarousel'
 
 function componentTester() {
 
-    const[searchParam,setSearchParam] = useState("")
-
     return (
     <>
+      <LinkCarousel/>
     </>
   )
 }
