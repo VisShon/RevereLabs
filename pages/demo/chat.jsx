@@ -4,7 +4,7 @@ import React, {useEffect} from "react";
 import {goToDirectChat, sendTokenToChat} from "../utils";
 
 
-function Demo() {
+export default function Chat() {
   // create a ref
     const myRef = React.createRef();
 
@@ -30,4 +30,3 @@ function Demo() {
   );
 }
 
-export default Demo;
