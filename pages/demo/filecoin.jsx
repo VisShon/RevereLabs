@@ -1,7 +1,7 @@
 // react functional component
 
 import React from "react";
-import {file_coin_upload} from "../../../functions/filecoin";
+import {file_coin_upload} from "../../utils/filecoin";
 
 export default function Chat() {
 
