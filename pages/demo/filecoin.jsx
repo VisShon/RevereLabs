@@ -7,8 +7,8 @@ export default function Chat() {
 
   return (
     <div>
-      <button onClick={() => {
-        file_coin_upload({
+      <button onClick={async () => {
+        await file_coin_upload({
             "name": "test",
             "description": "test",
             "bounty": 100,
