@@ -1,12 +1,13 @@
 import React,{useState} from 'react'
-import AgreementPortal from '../components/AgreementPortal'
+import ContractPortal from '../components/ContractPortal'
+
 
 
 function componentTester() {
 
     return (
     <>
-      <AgreementPortal/>
+      <ContractPortal/>
     </>
   )
 }
