@@ -1,9 +1,9 @@
 import React from 'react'
 
-function DAOs() {
+function Daos() {
   return (
-    <div>DAOs</div>
+    <div>Daos</div>
   )
 }
 
-export default DAOs
+export default Daos

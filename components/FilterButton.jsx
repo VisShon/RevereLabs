@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import Image from 'next/Image'
+import Filter from './others/Filter'
 
 function FilterButton({filters,setFilters}) {
 
@@ -11,10 +12,12 @@ function FilterButton({filters,setFilters}) {
         setIsOpen(preVal=>!preVal)
     }
 
-    const addFilter = () => {
+    const addFilter = (Title) => {
         let data = filters
-        filters.includes(Title)?(data=data.filter(item => item!==Title)):data.push(Title)
+        filters.includes(Title)?(data=data.filter(item => item!=Title)):data.push(Title)
+        console.log(data)
         setFilters(data)
+        console.log(filters)
     }
     
 
@@ -31,10 +34,7 @@ function FilterButton({filters,setFilters}) {
 
         {isOpen&&<div className="absolute pt-10 top-1 z-[0] w-[10rem] min-h-[5rem] flex flex-col items-center justify-around border-2 rounded-b-md font-mada bg-accent">
             {FilterTypes.map((item, i) =>(
-                <div onClick={()=>setFilters((prevVal)=>{console.log(prevVal)})} className="w-[90%] h-[20%] rounded-md my-2 px-2 flex justify-between items-center cursor-pointer " style={filters.includes(item.title) ?{backgroundColor:item.color,color:"#FFFFFF"}:{backgroundColor:"#FFFFFF"}} key={i}>
-                    <h2>{item.title}</h2>
-                    {filters.includes(item.title)&&<Image src={'/tik.png'} height={10} width={10} className="absolute right-0"/>}
-                </div>
+                <Filter title={item.title} color={item.color} addFilter={addFilter} filters={filters}  key={i}/>
             ))}
         </div>}
 
