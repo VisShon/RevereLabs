@@ -8,7 +8,7 @@ function Progress({steps=3,stepsDone=0}) {
     stepsDone--;
   }
   return (
-    <div className="flex h-[0.8rem]">
+    <div className="flex h-[0.8rem] mt-10">
       {bars}
     </div>
   )

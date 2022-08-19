@@ -19,30 +19,13 @@ function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,detai
   };
 
 
-  const onLogin = () => {
-    const user = {
-      name:'Vishnu Shon',
-      email: 'vishnu@gmail.com',
-      profilePicture:'/profilepic.png',
-      projects: [{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"}],
-      work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
-      link:[],
-      Daos:[
-          {title:'AtomDao',color:'#CBA3FF'},
-          {title:'StatesDao',color:'#88BBEB'}
-      ],
-    }
-    window.localStorage.setItem('user',user)
-  }
-
-
   return (
     <div className="relative z-10">
 
 
       {!isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
           {/* <Button Content="Login" Link='/login'/>  */}
-          <Button Content="Login" onClick={onLogin}/> 
+          <Button Content="Login" Link={'/Login'}/> 
           <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">You need to logIn to proceed</h2>
       </div>}
 

@@ -1,0 +1,25 @@
+{
+    "Web3Providers":[{
+        "logo":"/logos/Metamask.png",
+        "title":"Connect",
+        "titleHighlighted":" Metamask wallet",
+        "linkUrl":"/api/metamask",
+        "color":"#1178D7",
+        "backgroundColor":"#D26F00"},
+
+
+        {"logo":"/logos/sequence.png",
+        "title":"Connect",
+        "titleHighlighted":" Sequence wallet",
+        "linkUrl":"/api/sequence",
+        "color":"#31C1FF",
+        "backgroundColor":"#8161DF"}],
+
+    "FaangProviders":[{
+        "logo":"/logos/google.png",
+        "title":"Connect",
+        "titleHighlighted":" Google account",
+        "linkUrl":"/api/google",
+        "color":"#008A61",
+        "backgroundColor":"#ffffff"}]
+}
