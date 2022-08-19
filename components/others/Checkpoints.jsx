@@ -34,7 +34,7 @@ function Checkpoints() {
         <div className="w-[50%] h-[100%] flex flex-col justify-start pt-5">
 
             {userData.map((item,i)=>(
-                <div className="flex items-center w-[12rem] text-[0.75rem] mt-2">
+                <div className="flex items-center w-[12rem] text-[0.75rem] mt-2" key={i}>
                     <p>🗓</p>
                     <div className="rounded-md px-2 mx-1" style={{backgroundColor:item.colour,color:"#FFFFFF"}}>{item.title}</div>
                     <p className="text-secondary">{item.date}</p>
