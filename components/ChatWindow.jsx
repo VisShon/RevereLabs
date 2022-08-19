@@ -7,14 +7,12 @@ function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,detai
 
   const[posted,setPosted] = useState(false);
 
-
-
   const onclickHandlerFreeLancer = () => {
     //handle
   };
 
-
   const onPosthandler=() => {
+    window.localStorage.setItem('post',JSON.stringify(details));
     setPosted(true);
   };
 

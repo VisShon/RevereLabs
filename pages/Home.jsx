@@ -35,7 +35,7 @@ function Home({Projects}) {
         </div>
 
         <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
-            <Button Content={'Create Project'}  Link={'/createProject'}/>
+            <Button Content={'Create Project'}  Link={'/Project?type=New'}/>
         </div>
 
 

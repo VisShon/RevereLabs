@@ -6,8 +6,22 @@ import ChatWindow from '../../components/ChatWindow'
 function NewProjectCard() {
   const[user,setUser] = useState(null);
 
+
+  const[title,setTitle] = useState('');
+  const[descp,setDescp] = useState('');
+  const[bounty,setBounty] = useState('');
+  const[time,setTime] = useState('');
+  const[details,setDetails] = useState({title:title,descp:descp,bounty:bounty,time:time});
   //for demo
   // setUser();
+
+  useEffect(() => {
+    const updateDetails = () =>{
+        setDetails({title:title,descp:descp,bounty:bounty,time:time});
+    }
+    updateDetails()
+  },[title,descp,bounty,time]);
+
 
   useEffect(() => {
     const checkAuth = () =>{
@@ -24,23 +38,23 @@ function NewProjectCard() {
 
         <div className="flex flex-col justify-around font-mada font-medium text-[3rem]  ">
             <div className="flex flex-col h-[60%]">
-              <input type="text" className="border-2 rounded-md px-2 mb-1 mt-10 text-[2rem] font-mada font-[700] text-main" placeholder="Title"></input>
-              <textarea type="text" className="border-2 rounded-md px-2 border-textSecondary text-textSecondary  text-[1.25rem] font-[600] h-[60%]" placeholder="Description"></textarea>
+              <input type="text" className="border-2 rounded-md px-2 mb-1 mt-10 text-[2rem] font-mada font-[700] text-main" placeholder="Title" value={title} onChange={(e)=>setTitle(e.target.value)}></input>
+              <textarea type="text" className="border-2 rounded-md px-2 border-textSecondary text-textSecondary  text-[1.25rem] font-[600] h-[60%]" placeholder="Description" value={descp} onChange={(e)=>setDescp(e.target.value)}></textarea>
             </div>
 
             <div className="flex flex-col">
               <div className="flex  items-center  text-[4rem] justify-between">
                 <Image src={'/vectors/cash.png'} width="60" height="50"/>
-                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-secondary text-secondary text-[1.2rem]" placeholder="Bounty"></input>
+                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-secondary text-secondary text-[1.2rem]" placeholder="Bounty" value={bounty} onChange={(e)=>setBounty(e.target.value)}></input>
               </div>
               <div className="flex  items-center text-[4rem] justify-between">
                 <Image src={'/vectors/time.png'} width="60" height="60"/>
-                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-main text-main text-[1.2rem]" placeholder="Time"></input>
+                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-main text-main text-[1.2rem]" placeholder="Time" value={time} onChange={(e)=>setTime(e.target.value)}></input>
               </div>
             </div>
         </div>
 
-        <ChatWindow isUserLoggedIn={true&&user}/>
+        <ChatWindow isUserLoggedIn={true&&user} details={details}/>
     </div>
   )
 }

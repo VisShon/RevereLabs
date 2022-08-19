@@ -1,24 +1,19 @@
 import React,{useState,useEffect} from 'react'
 import Image from 'next/image'
-import ChatWindow from '../../components/ChatWindow'
+import ChatWindow from '../ChatWindow'
 
 
-function ProjectCard({details}) {
+function ProjectCard() {
 
-
-    const[user,setUser] = useState(null);
-
-  //for demo
-  // setUser();
+  const[user,setUser] = useState(null);
 
   useEffect(() => {
-    const checkAuth = (user) =>{
-        //
+    const checkAuth = () =>{
+        const person = window.localStorage.getItem('user')
+        setUser(person)
     }
     checkAuth()
   },[]);
-  
-
 
   return (
     <div className="flex relative z-10 justify-between px-10 py-12 w-[55%] h-[60vh] bg-[#ffffff]  border-4 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
@@ -47,7 +42,7 @@ function ProjectCard({details}) {
             </div>
         </div>
 
-        <ChatWindow isClient={true} />
+        <ChatWindow isUserLoggedIn={true&&user} isClient={false} isFreeLancer={true}/>
     </div>
   )
 }

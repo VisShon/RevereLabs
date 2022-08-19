@@ -19,7 +19,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
             {title:'StatesDao',color:'#88BBEB'}
         ],
       }
-      window.localStorage.setItem('user',user)
+      window.localStorage.setItem('user',JSON.stringify(user))
       window.history.back()
     }
     setStepsDone(preVal=>preVal+1);

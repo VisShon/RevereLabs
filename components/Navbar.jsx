@@ -26,7 +26,7 @@ function Navbar() {
           {/* login && (<></>) */}
           <div className="flex justify-between w-[25%] text-textMain text-[1rem] small:hidden">
              <a href="/Home" style={pageLocation=='/Home'?{color:"#1178D7"}:{}}>Home</a>
-             <a href="/Project" style={pageLocation=='/Project'?{color:"#1178D7"}:{}}>Project</a>
+             <a href="/Project?type=New" style={pageLocation=='/Project'?{color:"#1178D7"}:{}}>Project</a>
              <a href="/Daos" style={pageLocation=='/Daos'?{color:"#1178D7"}:{}}>DAOs</a>
              <a href="https://linktr.ee/reverelabs">Contact Us</a>
           </div>
