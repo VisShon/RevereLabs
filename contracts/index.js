@@ -20,7 +20,7 @@ async function deployContract(checkpoints, freelancer, clientAmount, freelancerS
     const signer = provider.getSigner()
     let factory = new ethers.ContractFactory(abi, bytecode, signer);
     console.log("reached1");
-    let contract = await factory.deploy(checkpoints, freelancer, clientAmount, freelancerStake, RGCNFTAddress, RTNAddress);
+    let contract = await factory.deploy(checkpoints, freelancer, clientAmount, freelancerStake, RGCNFTAddress, RTNAddress, freelancerCompensationIfClientCancels);
     console.log("reached2");
    
     // "0x2bD9aAa2953F988153c8629926D22A6a5F69b14E"
