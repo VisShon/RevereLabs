@@ -1,17 +1,38 @@
-import React from 'react'
+import React,{useState} from 'react'
 import Image from 'next/Image'
 import Button from './Button'
 import AddMember from './AddMember'
 
 function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,details}) {
 
+  const[posted,setPosted] = useState(false);
+
+
+
   const onclickHandlerFreeLancer = () => {
     //handle
-  }
+  };
 
 
   const onPosthandler=() => {
-    //handle
+    setPosted(true);
+  };
+
+
+  const onLogin = () => {
+    const user = {
+      name:'Vishnu Shon',
+      email: 'vishnu@gmail.com',
+      profilePicture:'/profilepic.png',
+      projects: [{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"}],
+      work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
+      link:[],
+      Daos:[
+          {title:'AtomDao',color:'#CBA3FF'},
+          {title:'StatesDao',color:'#88BBEB'}
+      ],
+    }
+    window.localStorage.setItem('user',user)
   }
 
 
@@ -20,11 +41,12 @@ function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,detai
 
 
       {!isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
-          <Button Content="Login" Link='/login'/> 
+          {/* <Button Content="Login" Link='/login'/>  */}
+          <Button Content="Login" onClick={onLogin}/> 
           <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">You need to logIn to proceed</h2>
       </div>}
 
-      {isClient&&isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
+      {!posted&&isClient&&isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
           <Button Content="Post" onClick={onPosthandler}/> 
           <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">Post the Gig to add freelancers</h2>
       </div>}

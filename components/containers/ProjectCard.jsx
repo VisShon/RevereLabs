@@ -3,7 +3,7 @@ import Image from 'next/image'
 import ChatWindow from '../../components/ChatWindow'
 
 
-function ProjectCard() {
+function ProjectCard({details}) {
 
 
     const[user,setUser] = useState(null);

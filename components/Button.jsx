@@ -4,7 +4,7 @@ import Image from 'next/image'
 
 function Button({Content, onClick, Link='',Color}) {
   return (
-      Link=='null'? <a onClick={onClick} className={styles.button}>
+      Link==''? <a onClick={onClick} className={styles.button}>
         {Content}
       </a>:
       <a className={styles.button} href={Link} style={{backgroundColor:Color}}>

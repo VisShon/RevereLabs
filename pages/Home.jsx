@@ -48,8 +48,8 @@ function Home({Projects}) {
   )
 }
 
-export async function getServerSideProps(){
-    //code to fetch data 
-}
+// export async function getServerSideProps(){
+//     //code to fetch data 
+// }
 
 export default Home

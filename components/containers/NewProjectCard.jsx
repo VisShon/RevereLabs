@@ -10,8 +10,9 @@ function NewProjectCard() {
   // setUser();
 
   useEffect(() => {
-    const checkAuth = (user) =>{
-        //
+    const checkAuth = () =>{
+        const person = window.localStorage.getItem('user')
+        setUser(person)
     }
     checkAuth()
   },[]);
@@ -39,7 +40,7 @@ function NewProjectCard() {
             </div>
         </div>
 
-        <ChatWindow/>
+        <ChatWindow isUserLoggedIn={true&&user}/>
     </div>
   )
 }
