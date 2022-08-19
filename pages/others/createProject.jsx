@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
-import NewProjectCard from '../components/containers/NewProjectCard'
-import Progress from '../components/Progress'
-import Button from '../components/Button'
+import NewProjectCard from '../../components/containers/NewProjectCard'
+import Progress from '../../components/Progress'
+import Button from '../../components/Button'
 
 function CreateProject() {
   const [stepsDone,setStepsDone] = useState(1);
