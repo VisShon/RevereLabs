@@ -1,28 +1,37 @@
 import React from 'react'
-import AddMember from '../AddMember'
+import Image from 'next/image'
+import ChatWindow from '../../components/ChatWindow'
 
 
-function NewProjectCard() {
+function NewProjectCard({Profile}) {
   return (
-    <div className="flex justify-between w-[65%] h-[35rem] bg-[#ffffff]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
+    <div className="flex relative z-10 justify-between px-10 py-12 w-[55%] h-[60vh] bg-[#ffffff]  border-4 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
 
-        
-        <div className="flex flex-col font-mada font-medium text-[3rem] mx-10 h-[100%] my-10">
-            Project Agreement
-            <input type="text" className="border-2 mb-1 mt-10 text-[2rem]" placeholder="Title"></input>
-            <input type="text" className="border-2 border-secondary text-secondary mb-1 text-[1.5rem]" placeholder="Bounty"></input>
-            <textarea type="text" className="border-2 border-textSecondary text-textSecondary mb-1 text-[1.5rem] font-normal h-[20%]" placeholder="Description"></textarea>
+        <div className="flex flex-col justify-around font-mada font-medium text-[3rem]  ">
+            <div className="flex flex-col h-[60%]">
+              <input type="text" className="border-2 rounded-md px-2 mb-1 mt-10 text-[2rem] font-mada font-[700] text-main" placeholder="Title"></input>
+              <textarea type="text" className="border-2 rounded-md px-2 border-textSecondary text-textSecondary  text-[1.25rem] font-[600] h-[60%]" placeholder="Description"></textarea>
+            </div>
 
-            <a href="#" className="text-textSecondary text-[1.5rem] mt-[25%] w-[10%]">T&C</a>
-            <span className="text-main text-[1.5rem]">
-                Connect to Daos
-                <input type="checkbox" className="rounded-[5px] h-[1rem] w-[1rem] drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] mx-2"></input>
-            </span>
+            <div className="flex flex-col">
+              <div className="flex  items-center  text-[4rem] justify-between">
+                <Image src={'/vectors/cash.png'} width="60" height="50"/>
+                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-secondary text-secondary text-[1.2rem]" placeholder="Bounty"></input>
+              </div>
+              <div className="flex  items-center text-[4rem] justify-between">
+                <Image src={'/vectors/time.png'} width="60" height="60"/>
+                <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-main text-main text-[1.2rem]" placeholder="Time"></input>
+              </div>
+
+              <span className='font-mada text-textSecondary text-[1rem] mt-10'>
+                Requested By 
+                {/* <span> {Profile.name} </span> */}
+                <span className='text-main'> Vishnu Shon </span>
+              </span>
+            </div>
         </div>
 
-        
-
-        <AddMember/>
+        <ChatWindow/>
     </div>
   )
 }
