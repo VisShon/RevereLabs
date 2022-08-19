@@ -7,7 +7,7 @@ function Navbar() {
   
   return (
     <>
-        <div className="flex justify-between items-center  p-10 font-Mada text-[1vw] w-[100%] z-10 ">
+        <div className="flex justify-between items-center  p-10 font-Mada text-[1vw] w-[100%] relative z-10 ">
           <a href="https://www.reverelabs.org/">
             <h1 className="font-mada font-[700] text-main text-[2.4rem]">revere</h1>
           </a>

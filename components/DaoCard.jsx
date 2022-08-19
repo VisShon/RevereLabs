@@ -1,9 +1,9 @@
 import React from 'react'
 import Image from 'next/Image'
 
-function DaoCard({daoImage,gigsProvided,gigsDone,memberCount,descp,link}) {
+function DaoCard({daoImage='/dao.png',gigsProvided,gigsDone,memberCount,descp,link}) {
   return (
-    <a href={'/#'} className="flex w-[25rem]  p-2 pt-5 mx-10 my-10 border-2 rounded-md font-mada cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] bg-[#ffffff]">
+    <a href={link} className="flex w-[25rem]  p-2 pt-5 mx-5 my-10 border-2 rounded-md font-mada cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] bg-[#ffffff]">
         <Image src={daoImage} height={280} width={250}/>
         <div className="pt-5">
             <div className="h-[0.1rem] bg-[#DBDBDB]"></div>
