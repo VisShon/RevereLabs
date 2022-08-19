@@ -1,9 +1,23 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Image from 'next/image'
 import ChatWindow from '../../components/ChatWindow'
 
 
-function NewProjectCard({Profile}) {
+function NewProjectCard() {
+  const[user,setUser] = useState(null);
+
+  //for demo
+  // setUser();
+
+  useEffect(() => {
+    const checkAuth = (user) =>{
+        //
+    }
+    checkAuth()
+  },[]);
+  
+
+
   return (
     <div className="flex relative z-10 justify-between px-10 py-12 w-[55%] h-[60vh] bg-[#ffffff]  border-4 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
 
@@ -22,12 +36,6 @@ function NewProjectCard({Profile}) {
                 <Image src={'/vectors/time.png'} width="60" height="60"/>
                 <input type="text" className="border-2 h-[3rem] rounded-md px-2 border-main text-main text-[1.2rem]" placeholder="Time"></input>
               </div>
-
-              <span className='font-mada text-textSecondary text-[1rem] mt-10'>
-                Requested By 
-                {/* <span> {Profile.name} </span> */}
-                <span className='text-main'> Vishnu Shon </span>
-              </span>
             </div>
         </div>
 

@@ -3,14 +3,32 @@ import Image from 'next/Image'
 import Button from './Button'
 import AddMember from './AddMember'
 
-function ChatWindow({isClient=true,isFreeLancer=false}) {
+function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,details}) {
 
   const onclickHandlerFreeLancer = () => {
     //handle
   }
 
+
+  const onPosthandler=() => {
+    //handle
+  }
+
+
   return (
-    <>
+    <div className="relative z-10">
+
+
+      {!isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
+          <Button Content="Login" Link='/login'/> 
+          <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">You need to logIn to proceed</h2>
+      </div>}
+
+      {isClient&&isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
+          <Button Content="Post" onClick={onPosthandler}/> 
+          <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">Post the Gig to add freelancers</h2>
+      </div>}
+
     {isClient&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
       <Image src={'/vectors/chat.png'} height={100} width={100}/>
       <h2 className="font-mada text-center font-[600] text-textSecondary mt-5">Add Freelancers and start chatting with them</h2>
@@ -23,7 +41,7 @@ function ChatWindow({isClient=true,isFreeLancer=false}) {
       <Button Content="Start" Color="#008A61" Onclick={onclickHandlerFreeLancer}/>
     </div>}
   
-  </>
+  </div>
   )
 }
 
