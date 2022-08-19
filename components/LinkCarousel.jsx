@@ -2,7 +2,7 @@ import React,{useState} from 'react'
 import Image from 'next/Image'
 
 let data=[]
-function LinkCarousel({}) {
+function LinkCarousel({userLinks,setUserLinks}) {
 
 
   const linkData = [{title:'linkedIn',logo:'/logos/linkedIn.png'},
@@ -13,7 +13,6 @@ function LinkCarousel({}) {
 
 
   const[newLink, setNewLink] = useState("")
-  const[userLinks,setUserLinks] = useState([])
   const[addLink,setAddLink] = useState(false)
 
 
@@ -41,7 +40,7 @@ function LinkCarousel({}) {
             <input value={newLink} onChange={(e)=>setNewLink(e.target.value)} placeholder="Search" type="search" className="p-1 relative z-10 border-2 rounded-md cursor-text drop-shadow-[5px_5px_0px_rgba(0,0,0,1)]   bg-[#ffffff]"/>
             <div className="absolute pt-10 top-1 left-2 z-0 w-[95%] min-h-[5rem] flex items-center justify-around border-2 rounded-b-md font-mada bg-accent">
               {linkData.map((item, i)=>(
-                <a onClick={()=>onclickHandler(item.title,item.logo,newLink)} key={i} className="drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] cursor-pointer" >
+                <a onClick={()=>onclickHandler(item.title,item.logo,newLink)} key={i} className="cursor-pointer drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)]" >
                   <Image src={item.logo} height={20} width={25} />
                 </a>
               ))}
