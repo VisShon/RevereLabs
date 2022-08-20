@@ -16,6 +16,12 @@ function Navbar() {
     useContext(BlockchainContext);
     useEffect(() => {
 
+        if(data?.user?.address){
+            console.log("sd");
+            
+
+        }
+
         const getPageLocation = () => {
             const res = new URL(window.location.href).pathname;
             console.log(res);
@@ -45,7 +51,7 @@ function Navbar() {
                         style={pageLocation==='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
                     <Link href="https://linktr.ee/reverelabs">Contact Us</Link>
                 </div>
-                {!data.isLoggedIn?<Button Content={'Login'}
+                {!data?.isLoggedIn?<Button Content={'Login'}
                     link={'/login'}/>:
                     <Button Content={'Your Profile'}
                         link={'/Profile'}/>}

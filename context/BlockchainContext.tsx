@@ -26,7 +26,7 @@ export const BlockchainProvider = ({ children }: Props) => {
     string | undefined
   >();
 
-    const [data, setData] = useState<object>({});
+    const [data, setData] = useState<object | null>(null);
     const connectWallet = async (firstTime = false) => {
         try {
             console.log("Connecting metamask...");
@@ -39,7 +39,7 @@ export const BlockchainProvider = ({ children }: Props) => {
                 setConnectedAccount(accounts[0]);
                 setData({...data ,
                     user :{
-                        ...(data.user),
+                        ...(data?.user),
                         address:accounts[0],
                         addType: 'metamask'
                     }
@@ -75,24 +75,29 @@ export const BlockchainProvider = ({ children }: Props) => {
     const checkIsWalletConnected = async () => {
         const connected = localStorage.getItem("connected");
 
-        if (connected != null) {
+        if (connected != null && data!= null) {
+            console.log(connected,data);
             console.log("connected ", connected);
             // connectWallet();
+        }
+        else{
+            let x = localStorage.getItem("userdata");
+            setData(JSON.parse(x));
         }
     };
 
     useEffect(() => {
-
+        
         checkIsWalletConnected();
         try {
-            if(data.address && connectedAccount === data.address){
+            if(data?.user?.address && connectedAccount === data?.user?.address){
                 console.log("Working perfectly, Both accounts are same");
-                console.log(connectedAccount,data.address);
+                console.log(connectedAccount,data?.user?.address);
             }
 
         } catch (error) {
             console.log("Different accounts");
-            console.log(connectedAccount,data.address);
+            console.log(connectedAccount,data?.user?.address);
 
         }
     }, [checkIsWalletConnected]);
