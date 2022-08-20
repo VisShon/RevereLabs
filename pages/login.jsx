@@ -1,13 +1,29 @@
-import React,{useState} from 'react'
+import React, {useEffect, useContext, useState}  from 'react'
 import Image from 'next/image';
 import Progress from '../components/Progress'
 import style from '../styles/LogInCard.module.scss'
 import LoginButton from '../components/LoginButton';
 import login from '../data/login.json'
 
-
+import {
+  AppContextProps,
+  BlockchainContext,
+} from "../context/BlockchainContext.tsx";
 function Login() {
     const [stepsDone,setStepsDone] = useState(1);
+    const {connectedAccount, connectWallet, disconnect} =
+      useContext(BlockchainContext);
+
+
+
+    useEffect(()=>
+      {
+         if(connectedAccount) {
+           setStepsDone(2);
+         }
+
+
+      },[connectedAccount]);
 
     return (
 
@@ -16,7 +32,7 @@ function Login() {
                 <Progress steps={2}
                     stepsDone={stepsDone}/>
                 <div className="relative z-10 mt-10 flex flex-col justify-center items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
-                    {stepsDone===1&&<>
+                    {stepsDone===1&& <>
                         {login.Web3Providers.map((item, i)=>(<LoginButton APIlink={'#'}
                             data={item}
                             setStepsDone={setStepsDone}
