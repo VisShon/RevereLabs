@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "0xsequence": "^0.40.5",
     "@aws-sdk/client-cognito-identity-provider": "^3.154.0",
     "@babel/eslint-parser": "^7.18.9",
     "@coinbase/wallet-sdk": "^3.4.0",
