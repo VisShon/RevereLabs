@@ -5,10 +5,8 @@ import {useRouter} from "next/router";
 import React, {useContext, useEffect} from "react";
 import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider";
 import {BlockchainContext} from "../../context/BlockchainContext.tsx";
-import Router from "next/router";
 export default function CognitoCallback() {
     const {data, setData} = useContext(BlockchainContext);
-    console.log("data",data);
     const router = useRouter()
     useEffect(() => {
 
@@ -25,7 +23,7 @@ export default function CognitoCallback() {
                 }
                 return;
             }
-            console.log("access_token",data);
+            console.log("data",data);
             const cognitoIdentityProviderClient = new CognitoIdentityProviderClient({
                 region: "ap-south-1",
             });
@@ -35,11 +33,10 @@ export default function CognitoCallback() {
 
             const handleActualLogin = async () => {
                 cognitoIdentityProviderClient.send(getUserCommand).then(async (user, err) => {
-                    
+
                     if (err) {
                         console.log("err", err);
                     } else {
-                        console.log("asds");
                         if (user?.UserAttributes) {
                             const email = user.UserAttributes.find((item) => item.Name === "email")?.Value;
                             if (email !== "") {
@@ -52,16 +49,17 @@ export default function CognitoCallback() {
                                     address : data.user.address,
                                     addType: data.user.addType
                                 });
-
+                                const {next, } = data;
                                 setData({
                                     ...data,
                                     user: response.data,
                                     isLoggedIn: true
                                 })
-
-                                console.log("halla", response.data);
-                                console.log(" is data" , data);
-                                router.push("/");
+                                if (next)
+                                    router.push(next);
+                                else {
+                                    router.push("/");
+                                }
                             }
                         }
                     }

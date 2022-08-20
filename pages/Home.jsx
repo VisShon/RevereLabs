@@ -42,7 +42,7 @@ function Home({Projects}) {
 
             <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
                 <Button Content={'Create Project'}
-                    Link={'/Project?type=New'}/>
+                    link={'/Project?type=New'}/>
             </div>
 
 
@@ -60,7 +60,7 @@ function Home({Projects}) {
 }
 
 // export async function getServerSideProps(){
-//     //code to fetch data 
+//     //code to fetch data
 // }
 
 export default Home

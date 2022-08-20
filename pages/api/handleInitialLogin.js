@@ -2,25 +2,18 @@ import {createOrUpdateUser, } from "../../../functions/utils.js";
 
 export default async function handler(req, res) {
 
-    // get POST parameters
     let {
         email, name, skills, links, associations, additional, address, addType
     } = req.body;
-    let x   =     await createOrUpdateUser(email, name, skills, links, associations, additional, address, addType);
-    console.log("printing", x);
-    const [user, created] = x;
+    const [user, created] = await createOrUpdateUser(email, name, skills, links, associations, additional, address, addType);
     if (created) {
+        // TODO: naman
         // Send welcome email
     }
     else {
+        // TODO: naman
         // Send prexisting user email
     }
-
-    // name,
-    // email,
-    // skills,
-    // links,
-    // associations,
 
     name = user.get("name");
     email = user.get("email");

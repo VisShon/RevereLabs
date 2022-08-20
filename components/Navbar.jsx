@@ -26,7 +26,7 @@ function Navbar() {
     })
 
 
-   
+
     return (
         <>
             <div className="flex justify-between items-center  p-10 font-Mada text-[1vw] w-[100%] z-10 ">
@@ -38,17 +38,17 @@ function Navbar() {
                 {/* login && (<></>) */}
                 <div className="flex justify-between w-[25%] text-textMain text-[1rem] small:hidden">
                     <Link href="/Home"
-                        style={pageLocation=='/Home'?{color:"#1178D7"}:{}}>Home</Link>
-                    <Link href="/Project?type=New"
-                        style={pageLocation=='/Project'?{color:"#1178D7"}:{}}>Project</Link>
+                        style={pageLocation==='/Home'?{color:"#1178D7"}:{}}>Home</Link>
+                    <Link href="/gig/create"
+                        style={pageLocation==='/gig/create'?{color:"#1178D7"}:{}}>Post a new gig</Link>
                     <Link href="/daos"
-                        style={pageLocation=='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
+                        style={pageLocation==='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
                     <Link href="https://linktr.ee/reverelabs">Contact Us</Link>
                 </div>
                 {!data.isLoggedIn?<Button Content={'Login'}
                     link={'/login'}/>:
                     <Button Content={'Your Profile'}
-                        Link={'/Profile'}/>}
+                        link={'/Profile'}/>}
             </div>
         </>
     )

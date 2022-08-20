@@ -1,37 +1,28 @@
-import React,{useState,useEffect} from 'react'
+import React, {useState, useEffect, useContext} from "react";
 import Image from 'next/image'
 import ChatWindow from '../../components/ChatWindow'
+import {BlockchainContext} from "../../context/BlockchainContext.tsx";
 
 
 function NewProjectCard() {
-    const[user,setUser] = useState(null);
+    const {data, setData} = useContext(BlockchainContext);
 
+    const[details,setDetails] = useState({title:'',descp:'',bounty:'',time:''});
+    const {title,descp,bounty,time} = details;
 
-    const[title,setTitle] = useState('');
-    const[descp,setDescp] = useState('');
-    const[bounty,setBounty] = useState('');
-    const[time,setTime] = useState('');
-    const[details,setDetails] = useState({title:title,descp:descp,bounty:bounty,time:time});
-    //for demo
-    // setUser();
-
+    console.log(data, 'data');
+    console.log(details, 'details');
     useEffect(() => {
-        const updateDetails = () =>{
-            setDetails({title:title,descp:descp,bounty:bounty,time:time});
+        if (data.newProject !== undefined && details.title === '' &&
+            details.descp === '' && details.bounty === '' && details.time === '') {
+            const {newProject, ...newData} = data;
+            console.log(newProject, "newProject");
+            setDetails(newProject);
+            setData(newData);
         }
-        updateDetails()
-    },[title,descp,bounty,time]);
-
-
-    useEffect(() => {
-        const checkAuth = () =>{
-            const person = window.localStorage.getItem('user')
-            setUser(person)
-        }
-        checkAuth()
-    },[]);
-  
-
+    // Intentionally suppress the warning about missing dependencies.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, [setData, ])
 
     return (
         <div className="flex relative z-10 justify-between px-10 py-12 w-[55%] h-[60vh] bg-[#ffffff]  border-4 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
@@ -42,12 +33,12 @@ function NewProjectCard() {
                         className="border-2 rounded-md px-2 mb-1 mt-10 text-[2rem] font-mada font-[700] text-main"
                         placeholder="Title"
                         value={title}
-                        onChange={(e)=>setTitle(e.target.value)}></input>
-                    <textarea type="text"
+                        onChange={(e)=>setDetails({...details, title: e.target.value})}></input>
+                    <textarea
                         className="border-2 rounded-md px-2 border-textSecondary text-textSecondary  text-[1.25rem] font-[600] h-[60%]"
                         placeholder="Description"
                         value={descp}
-                        onChange={(e)=>setDescp(e.target.value)}></textarea>
+                        onChange={(e)=>setDetails({...details, descp: e.target.value})}></textarea>
                 </div>
 
                 <div className="flex flex-col">
@@ -59,7 +50,7 @@ function NewProjectCard() {
                             className="border-2 h-[3rem] rounded-md px-2 border-secondary text-secondary text-[1.2rem]"
                             placeholder="Bounty"
                             value={bounty}
-                            onChange={(e)=>setBounty(e.target.value)}></input>
+                            onChange={(e)=>setDetails({...details, bounty: e.target.value})}></input>
                     </div>
                     <div className="flex  items-center text-[4rem] justify-between">
                         <Image src={'/vectors/time.png'}
@@ -69,13 +60,17 @@ function NewProjectCard() {
                             className="border-2 h-[3rem] rounded-md px-2 border-main text-main text-[1.2rem]"
                             placeholder="Time"
                             value={time}
-                            onChange={(e)=>setTime(e.target.value)}></input>
+                            onChange={(e)=>setDetails({...details, time: e.target.value})}></input>
                     </div>
                 </div>
             </div>
 
-            <ChatWindow isUserLoggedIn={true&&user}
-                details={details}/>
+            <ChatWindow
+                isUserLoggedIn={data.isLoggedIn}
+                details={details}
+                user={data.user}
+                projectData={details}
+            />
         </div>
     )
 }
