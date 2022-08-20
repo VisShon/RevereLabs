@@ -1,16 +1,21 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import Image from 'next/image'
 import ProjectCard from '../components/ProjectCard'
 import LinkCarousel from '../components/LinkCarousel'
 import styles from '../styles/Home.module.css'
-
+import {
+    BlockchainContext,
+} from "../context/BlockchainContext.tsx";
 
 function Profile({Profile}) {
+    const { data} =
+    useContext(BlockchainContext);
 
+    console.log(data, "is is data");
     const[userLinks,setUserLinks] = useState([])
     Profile={
-        name:'Vishnu Shon',
-        email: 'vishnu@gmail.com',
+        name:data.user.name,
+        email: data.user.email,
         profilePicture:'/profilepic.png',
         projects: [{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"}],
         work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
