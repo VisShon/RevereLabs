@@ -24,4 +24,4 @@ function Button({Content, onClick, link='',Color}) {
     }
 }
 
-export default Button
+export default Button;
