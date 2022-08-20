@@ -88,4 +88,4 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
   )
 }
 
-export default LoginButton
+export default LoginButton;
