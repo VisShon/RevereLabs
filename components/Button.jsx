@@ -2,16 +2,20 @@ import React from 'react'
 import styles from '../styles/Button.module.scss'
 import Image from 'next/image'
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 function Button({Content, onClick, link='',Color}) {
+     const router = useRouter();
+    
     console.log({Content, onClick, link,Color});
     return (
      
         <Link href={link}>
-            <a className={styles.button}
-                href={link}
-                style={{backgroundColor:Color}}>
+        <button className={styles.button}  style={{backgroundColor:Color}} onClick={() => {
+            router.push(link);
+        }}>
                 {Content}
-            </a>
+
+        </button>
             </Link> 
     )
 }

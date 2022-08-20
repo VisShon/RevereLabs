@@ -48,7 +48,7 @@ function Navbar() {
                 {!data.isLoggedIn?<Button Content={'Login'}
                     link={'/login'}/>:
                     <Button Content={'Your Profile'}
-                        Link={'/Profile'}/>}
+                        link={'/Profile'}/>}
             </div>
         </>
     )
