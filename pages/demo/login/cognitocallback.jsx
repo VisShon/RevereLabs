@@ -28,7 +28,7 @@ export default function CognitoCallback() {
                             const email = user.UserAttributes.find((item) => item.Name === "email")?.Value;
                             if (email !== "") {
                                 console.log("Calling cognitoAPI")
-                                const response = await axios.post("/api/cognito", {
+                                const response = await axios.post("/api/handleInitialLogin", {
                                     email,
                                     name: "Hardcoded",
                                     skills: ["Hardcoded"],
