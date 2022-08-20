@@ -89,8 +89,7 @@ export const BlockchainProvider = ({ children }: Props) => {
             // connectWallet();
         }
         else{
-            const user = JSON.parse(localStorage.getItem("userdata"));
-            setData({...data, user, isLoggedIn: true});
+            await connectWallet(true);
         }
     };
 
