@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
+import Image from 'next/image';
 import Progress from '../components/Progress'
 import style from '../styles/LogInCard.module.scss'
-import Image from 'next/image';
 import LoginButton from '../components/LoginButton';
 import login from '../data/login.json'
 
@@ -10,7 +10,7 @@ function Login() {
   const [stepsDone,setStepsDone] = useState(1);
 
   return (
-    
+
     <div className={style.container}>
       <div className="mb-10 w-[45rem] relative z-10">
         <Progress steps={2} stepsDone={stepsDone}/>
