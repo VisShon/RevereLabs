@@ -1,27 +1,30 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import SearchBar from '../components/SearchBar'
 import FilterButton from '../components/FilterButton'
 import ProjectCard from '../components/ProjectCard'
 import Button from '../components/Button'
-
+import axios from 'axios'
 
 
 function Home({Projects}) {
     const[filters,setFilters]= useState(['*']);
     const [searchParam,setSearchParam] = useState('')
 
-    Projects = [{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Development"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":true,  "category": "Development"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":true,  "category": "Design"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":true,  "category": "Design"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":true,  "category": "Design"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},
-        {"title":"TestGig2", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Development"},
-        {"title":"TestGig3", "description":"Need to implement a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Development"}]
+    Projects = [{"title":"TestGig2", "description":"Need to Design a website",
+        "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},]
 
+    const [projects,setProjects] = useState([]);
+    console.log(projects, "is is data");
+
+    useEffect(() => {
+        axios.get(
+            "/api/gig/fetch?completed=false").then((res) => {
+            console.log(res);
+            setProjects(res.data);
+        })
+    }, [])
 
     return (
         <div className={styles.container}>
@@ -42,12 +45,12 @@ function Home({Projects}) {
 
             <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
                 <Button Content={'Create Project'}
-                    link={'/Project?type=New'}/>
+                    link={'/gig/create'}/>
             </div>
 
 
             <div className="flex flex-wrap w-[100%] justify-items-center  relative z-0">
-                {Projects.filter(item=>filters.includes(item.category)||filters.length==1)
+                {projects?.filter(item=>filters.includes(item.category)||filters.length==1)
                     .filter(item=>item.title==searchParam||searchParam=='')
                     .map((project, i) =>(<ProjectCard isGigActive={!project.completed}
                         jobTitle={project.title}

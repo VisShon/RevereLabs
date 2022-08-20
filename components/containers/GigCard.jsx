@@ -10,8 +10,8 @@ export default function GigCard({gigId}) {
     const {data} =
       useContext(BlockchainContext);
     useEffect(() => {
-        axios.get(`/api/gig/get?gigId=${gigId}`).then(res => {
-            setGig(res.data);
+        axios.get(`/api/gig/fetch?objectId="${gigId}"`).then(res => {
+            setGig(res.data[0]);
         })
     }, [gigId]);
 
