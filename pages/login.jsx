@@ -26,12 +26,12 @@ function Login() {
         //handle
     }
 
-    
+
     return (
 
         <div className={style.container}>
             <div className="mb-10 w-[45rem] relative z-10">
-                <Progress steps={2}
+                <Progress steps={3}
                     stepsDone={stepsDone}/>
                 <div className="relative z-10 mt-10 flex flex-col justify-center items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
                     {stepsDone==1&&<>
