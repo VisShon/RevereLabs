@@ -18,7 +18,8 @@
 //    "plugin:jsx-a11y/recommended",
     "prettier",
     "next",
-    "next/core-web-vitals"
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended"
   ],
   "settings": { "next": { "version": "detect" } },
   "rules": {
