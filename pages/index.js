@@ -1,7 +1,6 @@
-import { checkCookies, getCookie, getCookies } from "cookies-next";
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import Home from '../pages/Home'
+import Home from '../components/Home'
 
 
 export default function Index() {
@@ -18,16 +17,3 @@ export default function Index() {
         </div>
     )
 }
-
-// export async function getServerSideProps({ req, res }) {
-//   try {
-//     const cookieExists = getCookie("token", { req, res });
-//     console.log(cookieExists);
-//     if (cookieExists) return { redirect: { destination: "/login" } };
-//     return { props: {} };
-//   } catch (err) {
-//     return { props: {} };
-//   }
-// }
-
-
