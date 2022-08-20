@@ -26,7 +26,7 @@ function Daos({Daos}) {
   
           <div className="relative z-20 flex w-[100%] items-center  overflow-visible">
               <SearchBar searchParam={searchParam} setSearchParam={setSearchParam}/>
-              <h2 className="font-mada font-[800] text-main text-[5rem] mx-[32%]">Le Daos</h2>
+              <h2 className="font-mada font-[800] text-main text-[5rem] mx-[20%]">Le Daos</h2>
           </div>
   
           <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
