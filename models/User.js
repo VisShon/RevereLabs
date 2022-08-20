@@ -12,9 +12,9 @@ const UserSchema= mongoose.Schema({
 let User;
 
 try {
-  User = mongoose.model("users");
+    User = mongoose.model("users");
 } catch (err) {
-  User = mongoose.model("users", UserSchema);
+    User = mongoose.model("users", UserSchema);
 }
 
 

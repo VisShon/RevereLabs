@@ -11,7 +11,7 @@
     "node": true
   },
   "extends": [
-
+    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
@@ -27,7 +27,7 @@
     "react/jsx-props-no-spreading": "off",
     "react/jsx-fragments": ["off"],
     "no-unused-vars": [
-      "error",
+      "warn",
       {
         "varsIgnorePattern": "^_",
         "argsIgnorePattern": "^_",
@@ -36,7 +36,7 @@
     ],
     "import/prefer-default-export": "off",
     "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
-    "indent": "warn",
-    "max-len": ["warn", 121]
+    "indent": "warn"
+//    "max-len": ["warn", 121]
   }
 }
