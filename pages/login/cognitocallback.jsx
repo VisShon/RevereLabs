@@ -15,15 +15,16 @@ export default function CognitoCallback() {
 
         const access_token = asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
         if (access_token) {
-            if (Object.keys(data).length === 0)
+            if (Object.keys(data).length === 0){
                 if (localStorage.getItem("data")) {
                     console.log("setting data", data, Boolean(localStorage.getItem("data")))
                     setData(JSON.parse(localStorage.getItem("data")));
                     console.log("setting ", JSON.parse(localStorage.getItem("data")));
 
                     localStorage.removeItem("data");
-                    return;
                 }
+                return;
+            }
             console.log("access_token",data);
             const cognitoIdentityProviderClient = new CognitoIdentityProviderClient({
                 region: "ap-south-1",
@@ -34,13 +35,15 @@ export default function CognitoCallback() {
 
             const handleActualLogin = async () => {
                 cognitoIdentityProviderClient.send(getUserCommand).then(async (user, err) => {
+                    
                     if (err) {
                         console.log("err", err);
                     } else {
+                        console.log("asds");
                         if (user?.UserAttributes) {
                             const email = user.UserAttributes.find((item) => item.Name === "email")?.Value;
                             if (email !== "") {
-                                console.log("Calling cognitoAPI")
+                                console.log("Calling cognitoAPI",data);
                                 const response = await axios.post("/api/handleInitialLogin", {
                                     email,
                                     name: data.user.name,
