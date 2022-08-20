@@ -11,30 +11,21 @@
     "node": true
   },
   "extends": [
-    "next",
-    "next/core-web-vitals",
+
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
     "plugin:import/recommended",
     "plugin:jsx-a11y/recommended",
-    "airbnb",
-    "prettier"
+    "prettier",
+    "next",
+    "next/core-web-vitals"
   ],
-  "settings": { "react": { "version": "detect" } },
+  "settings": { "next": { "version": "detect" } },
   "rules": {
     "react/prop-types": ["warn"],
     "react/forbid-prop-types": "off",
     "react/jsx-props-no-spreading": "off",
     "react/jsx-fragments": ["off"],
-    "no-undef": "error",
-    "no-use-before-define": "off",
-    "import/no-unresolved": "off",
-    "no-console": [
-      "error",
-      {
-        "allow": ["debug", "error"]
-      }
-    ],
     "no-unused-vars": [
       "error",
       {
@@ -43,6 +34,9 @@
         "args": "after-used"
       }
     ],
-    "import/prefer-default-export": "off"
+    "import/prefer-default-export": "off",
+    "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
+    "indent": "warn",
+    "max-len": ["warn", 121]
   }
 }
