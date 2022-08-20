@@ -18,15 +18,12 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
     };
 
     useEffect(() => {
-        axios.get("/api/gig-application/fetch").then((res) => {
+        axios.get(`/api/gig-application/fetch?gigId="${details.objectId}"`).then((res) => {
             console.log("sharam aagyi toh", res.data.length,res.data)
             setPeople(res.data);
         }
-        ).catch((error) => {
-            console.log("rahe meri saase",error)
-        
-        }    )
-    }, [])
+        )
+    }, [details.objectId])
     
 
     console.log(isOwner);
