@@ -1,7 +1,7 @@
 import {useRouter} from "next/router";
 import React from 'react'
 import Image from 'next/image'
-import GigCard from '../../../components/containers/GigCard'
+import GigCard from '../../../components/containers/GigCard';
 
 export default function Project() {
     const router = useRouter()

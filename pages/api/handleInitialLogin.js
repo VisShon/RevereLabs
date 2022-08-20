@@ -1,5 +1,5 @@
 import {createOrUpdateUser, } from "../../../functions/utils.js";
-
+import {sendWelcomeEmail, sendRepeatEmail, } from "../../../functions/email.js";
 export default async function handler(req, res) {
 
     let {
@@ -7,12 +7,12 @@ export default async function handler(req, res) {
     } = req.body;
     const [user, created] = await createOrUpdateUser(email, name, skills, links, associations, additional, address, addType);
     if (created) {
-        // TODO: naman
-        // Send welcome email
+        
+        sendWelcomeEmail(email, name);
     }
     else {
-        // TODO: naman
-        // Send prexisting user email
+       
+        sendRepeatEmail(email, name, associations);
     }
     // this.rocketChatId = null;
     // this.rocketChatToken = null;

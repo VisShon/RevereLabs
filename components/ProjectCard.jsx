@@ -1,8 +1,8 @@
 import React from 'react'
 
-function ProjectCard({isGigActive=false,jobTitle,amount,description, objectId}) {
+function ProjectCard({isGigActive=false,jobTitle,amount,description, project}) {
     return (
-        <a href={`/gig/view/${objectId}`}
+        <a href={`/gig/view/${project?.objectId}`}
             className="relative w-[15rem]  h-[20rem] p-5 mx-10 my-10 border-2 rounded-md font-mada cursor-pointer drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] bg-[#ffffff]">
             {isGigActive&&<div className="bg-secondary rounded-full w-[0.8rem] h-[0.8rem] top-2 right-4 absolute "></div>}
             <div className="h-[0.1rem] bg-[#DBDBDB] mt-4"></div>

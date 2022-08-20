@@ -1,6 +1,7 @@
 import React, {useState, useEffect, useContext} from "react";
 import Image from 'next/image'
-import ChatWindow from '../../components/ChatWindow'
+import ViewWindow from '../CreateWindow'
+
 import {BlockchainContext} from "../../context/BlockchainContext.tsx";
 
 
@@ -45,6 +46,7 @@ function NewProjectCard() {
                     <div className="flex  items-center  text-[4rem] justify-between">
                         <Image src={'/vectors/cash.png'}
                             width="60"
+                            alt="df"
                             height="50"/>
                         <input type="text"
                             className="border-2 h-[3rem] rounded-md px-2 border-secondary text-secondary text-[1.2rem]"
@@ -54,6 +56,7 @@ function NewProjectCard() {
                     </div>
                     <div className="flex  items-center text-[4rem] justify-between">
                         <Image src={'/vectors/time.png'}
+                            alt="df"
                             width="60"
                             height="60"/>
                         <input type="text"
@@ -65,7 +68,7 @@ function NewProjectCard() {
                 </div>
             </div>
 
-            <ChatWindow
+            <ViewWindow
                 isUserLoggedIn={data.isLoggedIn}
                 details={details}
                 user={data.user}
@@ -76,4 +79,4 @@ function NewProjectCard() {
 
 
 
-export default NewProjectCard
+export default NewProjectCard;

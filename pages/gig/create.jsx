@@ -10,6 +10,7 @@ export default function Project() {
             <NewProjectCard/>
             <div className="absolute z-0 top-[20%] left-[10%]">
                 <Image
+                    alt={"Image"}
                     src={background_image}
                     height={700}
                     width={700}
