@@ -16,7 +16,7 @@ function Profile({Profile}) {
         work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
         link:[],
         Daos:[
-            {title:'AtomDao',color:'#CBA3FF'},
+            {title:'odysseydao',color:'#CBA3FF'},
             {title:'StatesDao',color:'#88BBEB'}
         ],
 

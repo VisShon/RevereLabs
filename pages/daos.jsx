@@ -8,11 +8,11 @@ import Button from '../components/Button'
 function Daos({Daos}) {
     const [searchParam,setSearchParam] = useState('')
   
-    Daos = [{"title":"atomDao", "gigsProvided":250, "description":"Need to Design a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Design"},
-    {"title":"atomDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Development"},
-    {"title":"atomDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Development"},
-    {"title":"atomDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Design"},
-    {"title":"atomDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Design"},
+    Daos = [{"title":"odysseydao", "gigsProvided":250, "description":"Need to Design a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Design"},
+    {"title":"odysseydao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Development"},
+    {"title":"odysseydao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Development"},
+    {"title":"odysseydao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Design"},
+    {"title":"odysseydao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Design"},
     {"title":"revereDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":359,  "category": "Design"},
     {"title":"revereDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Design"},
     {"title":"revereDao", "gigsProvided":250, "description":"Need to implement a website", "link":"https://ethereum.org/en/dao/", "memberCount":414, "gigsDone":135,  "category": "Development"},

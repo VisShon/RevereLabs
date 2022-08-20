@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 import Button from './Button'
 import AddMember from './AddMember'
 
@@ -23,7 +23,7 @@ function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,detai
 
       {!isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
           {/* <Button Content="Login" Link='/login'/>  */}
-          <Button Content="Login" Link={'/Login'}/> 
+          <Button Content="Login" Link={'/login'}/> 
           <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">You need to logIn to proceed</h2>
       </div>}
 

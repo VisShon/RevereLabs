@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 function Filter({title,color,addFilter,filters}) {
     const[selected,setSelected] = useState(false)

@@ -1,5 +1,5 @@
 import React,{useState} from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 import TextField from '@mui/material/TextField';
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';

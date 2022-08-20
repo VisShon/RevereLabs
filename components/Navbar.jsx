@@ -1,6 +1,6 @@
 import React,{useEffect,useState} from 'react'
 import Button from './Button'
-import Image from 'next/Image'
+import Image from 'next/image'
 import '../pages/_document'
 import Link from 'next/link';
 function Navbar() {
@@ -28,10 +28,10 @@ function Navbar() {
           <div className="flex justify-between w-[25%] text-textMain text-[1rem] small:hidden">
              <Link href="/Home" style={pageLocation=='/Home'?{color:"#1178D7"}:{}}>Home</Link>
              <Link href="/Project?type=New" style={pageLocation=='/Project'?{color:"#1178D7"}:{}}>Project</Link>
-             <Link href="/Daos" style={pageLocation=='/Daos'?{color:"#1178D7"}:{}}>DAOs</Link>
+             <Link href="/daos" style={pageLocation=='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
              <Link href="https://linktr.ee/reverelabs">Contact Us</Link>
           </div>
-          {!isUserLoggedIn?<Button Content={'Login'} Link={'/Login'}/>:
+          {!isUserLoggedIn?<Button Content={'Login'} Link={'/login'}/>:
           <Button Content={'Your Profile'} Link={'/Profile'}/>}
         </div>
     </>

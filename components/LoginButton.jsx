@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 import axios from 'axios'
 
 function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
@@ -15,7 +15,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
         link:[],
         Daos:[
-            {title:'AtomDao',color:'#CBA3FF'},
+            {title:'odysseydao',color:'#CBA3FF'},
             {title:'StatesDao',color:'#88BBEB'}
         ],
       }

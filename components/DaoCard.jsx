@@ -1,5 +1,5 @@
 import React from 'react'
-import Image from 'next/Image'
+import Image from 'next/image'
 
 function DaoCard({daoImage='/dao.png',gigsProvided,gigsDone,memberCount,descp,link}) {
   return (
