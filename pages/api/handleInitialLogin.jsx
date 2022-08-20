@@ -1,4 +1,4 @@
-import {createOrUpdateUser, getUser} from "../../../functions/utils.js";
+import {createOrUpdateUser, } from "../../../functions/utils.js";
 
 export default async function handler(req, res) {
 
