@@ -8,7 +8,7 @@ import { sequence } from "0xsequence";
 
 
 
-function LoginButton({APIlink,item,setStepsDone,stepsDone}) {
+function LoginButton({item,setStepsDone,stepsDone}) {
 
     const { connectWallet, data} =
       useContext(BlockchainContext);

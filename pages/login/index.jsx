@@ -26,7 +26,7 @@ function Login() {
         setStepsDone(2);
     }
 
-    console.log( name,data);
+    console.log( name,data, "lklklk");
 
     return (
 

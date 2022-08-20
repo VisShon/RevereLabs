@@ -9,11 +9,9 @@ export default function CognitoCallback() {
     const {data, setData} = useContext(BlockchainContext);
     const router = useRouter()
     useEffect(() => {
-
-
         const access_token = router.asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
         if (access_token) {
-            if (data !== null && Object.keys(data).length === 0){
+            if (Object.keys(data).length === 0){
                 if (localStorage.getItem("data")) {
                     console.log("setting data", data, Boolean(localStorage.getItem("data")))
                     setData(JSON.parse(localStorage.getItem("data")));
@@ -43,7 +41,7 @@ export default function CognitoCallback() {
                                 console.log("Calling cognitoAPI",data);
                                 const response = await axios.post("/api/handleInitialLogin", {
                                     email,
-                                    name: data?.user?.name,
+                                    name: data.user.name,
                                     skills: [],
                                     links: [],
                                     address : data.user.address,
@@ -55,10 +53,8 @@ export default function CognitoCallback() {
                                     user: response.data,
                                     isLoggedIn: true
                                 })
-                                localStorage.setItem("userdata",JSON.stringify(data));
+                                localStorage.setItem("userdata",JSON.stringify(response.data));
                                 if (next)
-
-
                                     router.push(next);
                                 else {
                                     router.push("/");
