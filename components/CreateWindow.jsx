@@ -34,7 +34,7 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
 
 
     return (
-        <div className="relative z-10">
+        <div className="relative z-2">
             {isOwner&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
                 <Image src={'/vectors/chat.png'}
                     height={100}

@@ -3,6 +3,7 @@
 import React, { useEffect, useState, createContext, } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
+import {sequence} from "0xsequence";
 
 export type AppContextProps = {
     connectedAccount: string | undefined;
@@ -38,7 +39,17 @@ export const BlockchainProvider = ({ children }: Props) => {
     const connectWallet = async (firstTime = false) => {
         try {
             console.log("Connecting metamask...");
-            const web3Modal = new Web3Modal({ cacheProvider: true });
+            const web3Modal = new Web3Modal({providerOptions:{
+
+                sequence: {
+                    package: sequence,
+                    options: {
+                        appName: 'Web3Modal Demo Dapp',
+                        defaultNetwork: 'polygon'
+                    }
+                }
+            },
+            cacheProvider: false });
             const connection = await web3Modal.connect();
             const provider = new ethers.providers.Web3Provider(connection);
             const accounts = await provider.listAccounts();
@@ -86,10 +97,6 @@ export const BlockchainProvider = ({ children }: Props) => {
         if (connected != null && data!= null) {
             console.log(connected,data);
             console.log("connected ", connected);
-            // connectWallet();
-        }
-        else{
-            await connectWallet(true);
         }
     };
 

@@ -65,14 +65,14 @@ function Profile({Profile}) {
                 height="200"
                 width="700" /></div>
 
-            <div className="relative z-10 w-[100%] flex flex-col items-center text-center">
+            <div className="relative z-2 w-[100%] flex flex-col items-center text-center">
                 <a className="drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] ">
                     <Image src={Profile.profilePicture}
                         alt={"s"}
                         width="200"
                         height="200"/>
                 </a>
-            
+
                 <h2 className="text-main font-mada font-[700] text-[5rem]">{Profile.name}</h2>
 
                 <div className='flex text-textMain font-mada font-[500]'>
@@ -93,13 +93,13 @@ function Profile({Profile}) {
                         </div>
                     ))}
                 </div>
-            
+
                 <LinkCarousel userLinks={userLinks}
                     setUserLinks={setUserLinks} />
             </div>
 
-        
-            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-10">My Taken Work</h2>
+
+            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-2">My Taken Work</h2>
             <div className='flex flex-wrap w-[100%] justify-items-center'>
                 {gigs.map((project, i) =>(
                     project.issuedBy !== data?.user?.id &&
@@ -107,10 +107,10 @@ function Profile({Profile}) {
                     jobTitle={project.title}
                     amount={project.bounty}
                     descp={project.description}
-                    key={i}/>  ))} 
+                    key={i}/>  ))}
             </div>
 
-            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-5">My Given Projects</h2>
+            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-1">My Given Projects</h2>
             <div className='flex flex-wrap w-[100%] justify-items-center'>
                 {gigs.map((project, i) =>(
                     project.issuedBy === data?.user?.id &&   <ProjectCard
@@ -119,9 +119,9 @@ function Profile({Profile}) {
                         jobTitle={project.title}
                         amount={project.bounty}
                         descp={project.description}
-                        key={i}/>  
+                        key={i}/>
 
-                ))} 
+                ))}
             </div>
 
         </div>
@@ -129,7 +129,7 @@ function Profile({Profile}) {
 }
 
 // export async function getServerSideProps(){
-//     //code to fetch data 
+//     //code to fetch data
 // }
 
 export default Profile

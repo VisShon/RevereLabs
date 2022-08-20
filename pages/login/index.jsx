@@ -31,10 +31,10 @@ function Login() {
     return (
 
         <div className={style.container}>
-            <div className="mb-10 w-[45rem] relative z-10">
+            <div className="mb-10 w-[45rem] relative z-2">
                 <Progress steps={3}
                     stepsDone={stepsDone}/>
-                <div className="relative z-10 mt-10 flex flex-col justify-center items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
+                <div className="relative z-2 mt-10 flex flex-col justify-center items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
                     {stepsDone===1&&<>
                         <Image src={'/vectors/user.png'}
                             height={100}

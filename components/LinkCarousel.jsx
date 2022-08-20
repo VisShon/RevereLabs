@@ -48,7 +48,7 @@ function LinkCarousel({userLinks,setUserLinks}) {
                             onChange={(e)=>setNewLink(e.target.value)}
                             placeholder="Search"
                             type="search"
-                            className="p-1 relative z-10 border-2 rounded-md cursor-text drop-shadow-[5px_5px_0px_rgba(0,0,0,1)]   bg-[#ffffff]"/>
+                            className="p-1 relative z-2 border-2 rounded-md cursor-text drop-shadow-[5px_5px_0px_rgba(0,0,0,1)]   bg-[#ffffff]"/>
                         <div className="absolute pt-10 top-1 left-2 z-0 w-[95%] min-h-[5rem] flex items-center justify-around border-2 rounded-b-md font-mada bg-accent">
                             {linkData.map((item, i)=>(
                                 <a onClick={()=>onclickHandler(item.title,item.logo,newLink)}

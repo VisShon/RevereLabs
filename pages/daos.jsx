@@ -34,7 +34,7 @@ function Daos({Daos}) {
                 <h2 className="font-mada font-[800] text-main text-[5rem] mx-[20%]">Le Daos</h2>
             </div>
 
-            <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
+            <div className="relative z-2 flex w-[95%] items-center justify-end overflow-visible">
                 <Button Content={'Apply Dao'}
                     link={'https://linktr.ee/reverelabs'}/>
             </div>

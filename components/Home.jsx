@@ -42,7 +42,7 @@ function Home({Projects}) {
                     setFilters={setFilters} />
             </div>
 
-            <div className="relative z-10 flex w-[95%] items-center justify-end overflow-visible">
+            <div className="relative z-2 flex w-[95%] items-center justify-end overflow-visible">
                 <Button Content={'Create Project'}
                     link={'/gig/create'}/>
             </div>

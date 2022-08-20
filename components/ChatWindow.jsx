@@ -24,7 +24,7 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
         }
         )
 
-    
+
         for ( let i = 0; i<people.length;i++){
             axios.get(`/api/profile/fetch?objectId="${people[i].applicantId}"`).then((res) => {
                 console.log("user value aagyi toh", res.data.length,res.data)
@@ -33,13 +33,13 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
             )
         }
     }, [details])
-    
+
 
     console.log(people," are people");
 
 
     return (
-        <div className="relative z-10">
+        <div className="relative z-2">
             {isOwner&& people.length===0&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
                 <Image src={'/vectors/chat.png'}
                     height={100}
@@ -69,7 +69,7 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
                                 value="volvo">Volvo</option>
                         ))}
 
-                      
+
                     </select>
                     <Chat userToken={data?.user?.rocketChatToken}/>
                 </div>
