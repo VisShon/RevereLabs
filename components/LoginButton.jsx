@@ -46,13 +46,13 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         }
     }
 
-    useEffect(() => {
-        handlCheck();
-    // if (connectedAccount) {
-    //   console.log(connectedAccount);
-    //   router.push("/Profile");
-    // }
-    });
+    // useEffect(() => {
+    //     handlCheck();
+    // // if (connectedAccount) {
+    // //   console.log(connectedAccount);
+    // //   router.push("/Profile");
+    // // }
+    // });
 
     const onClicked = async () => {
         console.log("metamask", data);
@@ -105,20 +105,22 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
             window.localStorage.setItem('user', JSON.stringify(user))
             window.history.back()
         }
+      }
 
 
-        return (
-            <button onClick={onClicked}
-                className="w-[20rem] h-[5rem] mt-5 flex justify-center items-center rounded-[8px] hover:drop-shadow-[5px_5px_0px_rgba(159,159,159,1)]"
-                style={{backgroundColor: data.backgroundColor}}>
-                <Image src={data.logo}
-                    height="40"
-                    width="50"/>
-                <span className="ml-10 font-mada font-[600] text-textMain">{data.title} <span
-                    style={{color: data.color}}>{data.titleHighlighted}</span></span>
-            </button>
-        )
+    return (
+      <>
+        <button onClick={onClicked}
+            className="w-[20rem] h-[5rem] mt-5 flex justify-center items-center rounded-[8px] hover:drop-shadow-[5px_5px_0px_rgba(159,159,159,1)]"
+            style={{backgroundColor: data.backgroundColor}}>
+            <Image src={data.logo}
+                height="40"
+                width="50"/>
+            <span className="ml-10 font-mada font-[600] text-textMain">{data.title} <span
+                style={{color: data.color}}>{data.titleHighlighted}</span></span>
+        </button>
+        </>
+    )
     }
-}
 
 export default LoginButton;
