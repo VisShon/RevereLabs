@@ -6,7 +6,7 @@ function Terms() {
 
 
     return (
-        <div className="bg-accent w-[100%] h-[40%] flex flex-col justify-around">
+        <div className="bg-[white] h-[100%] flex flex-col justify-around">
             <div className="w-[100%] flex justify-between">
                 <p>Client’s Bounty</p>
                 <input value={bounty}

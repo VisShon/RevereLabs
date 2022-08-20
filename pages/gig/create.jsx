@@ -8,7 +8,7 @@ export default function Project() {
     return (
         <div className="flex flex-col items-center">
             <NewProjectCard/>
-            <div className="absolute z-0 top-[20%] left-[5%]">
+            <div className="absolute z-0 top-[20%] left-[10%]">
                 <Image
                     src={background_image}
                     height={700}

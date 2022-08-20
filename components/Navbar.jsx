@@ -40,7 +40,7 @@ function Navbar() {
                     <Link href="/Home"
                         style={pageLocation==='/Home'?{color:"#1178D7"}:{}}>Home</Link>
                     <Link href="/gig/create"
-                        style={pageLocation==='/gig/create'?{color:"#1178D7"}:{}}>Post a new gig</Link>
+                        style={pageLocation==='/gig/create'?{color:"#1178D7"}:{}}>Post Gig</Link>
                     <Link href="/daos"
                         style={pageLocation==='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
                     <Link href="https://linktr.ee/reverelabs">Contact Us</Link>

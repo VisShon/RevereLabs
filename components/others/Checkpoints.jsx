@@ -29,7 +29,7 @@ function Checkpoints() {
         {title:'Deliver By',colour:'#EAE4A8'},]
 
     return (
-        <div className="bg-accent  w-[100%] h-[40%] flex justify-between">
+        <div className="bg-[white] h-[100%]  flex justify-between">
 
             <div className="w-[50%] h-[100%] flex flex-col justify-start pt-5">
 
@@ -55,7 +55,7 @@ function Checkpoints() {
                         label="Set Checkpoint"
                         value={date}
                         onChange={(newValue) => {
-                            setDate(newValue);
+                            setDate(newValue)
                         }}
                         renderInput={(params) => <TextField {...params} />}
                     />
