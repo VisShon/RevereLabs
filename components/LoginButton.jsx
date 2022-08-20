@@ -12,9 +12,9 @@ import { sequence } from "0xsequence";
 
 function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
-    const {connectedAccount, connectWallet, disconnect, loggedin, settingLoggedin} =
+    const { connectWallet,} =
       useContext(BlockchainContext);
-    const wallet = sequence.initWallet('polygon');
+    let wallet = sequence.initWallet('polygon');
 
 
     async function handlCheck() {
@@ -88,53 +88,53 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         }
         else if (data.titleHighlighted === "AWS Cognito") {
             login_redirect();
-            return;
+
         }
-        const result = await axios.get(APIlink)
-        if (stepsDone === 2) {
-            const user = {
-                name: 'Vishnu Shon',
-                email: 'vishnu@gmail.com',
-                profilePicture: '/profilepic.png',
-                projects: [{
-                    "title": "TestGig2",
-                    "description": "Need to Design a website",
-                    "bounty": "USD400",
-                    "time": "2 months",
-                    "completed": false,
-                    "category": "Design"
-                }, {
-                    "title": "TestGig2",
-                    "description": "Need to Design a website",
-                    "bounty": "USD400",
-                    "time": "2 months",
-                    "completed": false,
-                    "category": "Design"
-                }, {
-                    "title": "TestGig2",
-                    "description": "Need to Design a website",
-                    "bounty": "USD400",
-                    "time": "2 months",
-                    "completed": false,
-                    "category": "Design"
-                }],
-                work: [{
-                    "title": "TestGig2",
-                    "description": "Need to Design a website",
-                    "bounty": "USD400",
-                    "time": "2 months",
-                    "completed": false,
-                    "category": "Design"
-                },],
-                link: [],
-                Daos: [
-                    {title: 'odysseydao', color: '#CBA3FF'},
-                    {title: 'StatesDao', color: '#88BBEB'}
-                ],
-            }
-            window.localStorage.setItem('user', JSON.stringify(user))
-            window.history.back()
-        }
+        // const result = await axios.get(APIlink)
+        // if (stepsDone === 2) {
+        //     const user = {
+        //         name: 'Vishnu Shon',
+        //         email: 'vishnu@gmail.com',
+        //         profilePicture: '/profilepic.png',
+        //         projects: [{
+        //             "title": "TestGig2",
+        //             "description": "Need to Design a website",
+        //             "bounty": "USD400",
+        //             "time": "2 months",
+        //             "completed": false,
+        //             "category": "Design"
+        //         }, {
+        //             "title": "TestGig2",
+        //             "description": "Need to Design a website",
+        //             "bounty": "USD400",
+        //             "time": "2 months",
+        //             "completed": false,
+        //             "category": "Design"
+        //         }, {
+        //             "title": "TestGig2",
+        //             "description": "Need to Design a website",
+        //             "bounty": "USD400",
+        //             "time": "2 months",
+        //             "completed": false,
+        //             "category": "Design"
+        //         }],
+        //         work: [{
+        //             "title": "TestGig2",
+        //             "description": "Need to Design a website",
+        //             "bounty": "USD400",
+        //             "time": "2 months",
+        //             "completed": false,
+        //             "category": "Design"
+        //         },],
+        //         link: [],
+        //         Daos: [
+        //             {title: 'odysseydao', color: '#CBA3FF'},
+        //             {title: 'StatesDao', color: '#88BBEB'}
+        //         ],
+        //     }
+        //     window.localStorage.setItem('user', JSON.stringify(user))
+        //     window.history.back()
+        // }
     }
 
 
