@@ -1,7 +1,7 @@
 // react functional component
 
 import React, {useEffect} from "react";
-// import {goToDirectChat, sendTokenToChat} from "../utils";
+import {goToDirectChat, sendTokenToChat} from "../../../functions/utils";
 
 
 export default function Chat() {
@@ -11,7 +11,7 @@ export default function Chat() {
     useEffect(() => {
         if (myRef.current !== undefined)
             setTimeout(() => {
-                // sendTokenToChat(myRef, "hjPCd29UmcrygboePZ0rBUtWgr55_WUT0LhdZlCZo6e");
+                sendTokenToChat(myRef, "hjPCd29UmcrygboePZ0rBUtWgr55_WUT0LhdZlCZo6e");
             }, 2000)
     }, [myRef])
 
@@ -24,7 +24,7 @@ export default function Chat() {
                 title="myframe"
             ></iframe>
             <button onClick={() => {
-                // goToDirectChat(myRef, "Gpg5TEjDzkEhxA7bfQ7FKXYyNSpwKmR8mQ")
+                goToDirectChat(myRef, "Gpg5TEjDzkEhxA7bfQ7FKXYyNSpwKmR8mQ")
             }}>Talk to Heemank</button>
         </div>
     );

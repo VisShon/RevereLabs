@@ -6,6 +6,7 @@ import {
     AppContextProps,
     BlockchainContext,
 } from "../context/BlockchainContext.tsx";
+import {login_redirect} from "../pages/demo/login";
 function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
     const {connectedAccount, connectWallet, disconnect} =
@@ -59,6 +60,10 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         if (data.titleHighlighted === " Metamask wallet") {
             console.log("dsf");
             connectWallet(true);
+        }
+        else if (data.titleHighlighted === "AWS Cognito") {
+            login_redirect();
+            return;
         }
         const result = await axios.get(APIlink)
         if (stepsDone === 2) {
@@ -117,7 +122,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
                     height="40"
                     width="50"/>
                 <span className="ml-10 font-mada font-[600] text-textMain">{data.title} <span
-                    style={{color: data.color}}>{data.titleHighlighted}</span></span>
+                    style={{color: data.color}}>{" " + data.titleHighlighted}</span></span>
             </button>
         </>
     )

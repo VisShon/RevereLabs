@@ -1,16 +1,15 @@
 // react functional component
 
+import axios from "axios";
 import {useRouter} from "next/router";
 import React, {useEffect} from "react";
 import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider"; // ES Modules import
 
 export default function CognitoCallback() {
     const {asPath} = useRouter();
-    const [user, setUser] = React.useState(null);
     useEffect(() => {
         const access_token = asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
         if (access_token) {
-            console.log(access_token);
             // get user details using AWS cognito code
             const cognitoIdentityProviderClient = new CognitoIdentityProviderClient({
                 region: "ap-south-1",
@@ -18,28 +17,36 @@ export default function CognitoCallback() {
             const getUserCommand = new GetUserCommand({
                 AccessToken: access_token,
             });
-            cognitoIdentityProviderClient.send(getUserCommand).then((data, err) => {
-                if (err) {
-                    console.log("err", err);
-                } else {
-                    console.log(data);
-                    setUser(data);
-                }
-            });
+
+            const handleActualLogin = async () => {
+                cognitoIdentityProviderClient.send(getUserCommand).then(async (data, err) => {
+                    if (err) {
+                        console.log("err", err);
+                    } else {
+                        const user=data;
+                        if (user?.UserAttributes) {
+                            const email = user.UserAttributes.find((item) => item.Name === "email")?.Value;
+                            if (email !== "") {
+                                console.log("Calling cognitoAPI")
+                                const response = await axios.post("/api/cognito", {
+                                    email,
+                                    name: "Hardcoded",
+                                    skills: ["Hardcoded"],
+                                    links: ["Hardcoded"],
+                                });
+                                console.log("halla", response.data);
+                            }
+                        }
+                    }
+                });
+            };
+            handleActualLogin();
         }
-    }, [asPath])
-
-    let email=null;
-
-    if (user?.UserAttributes)
-        email = user.UserAttributes.find((item) => item.Name === "email")?.Value;
-    console.log(email, user);
-
-
+    }, [asPath]);
 
     return (
         <div>
-          hi {email}
+          Please wait...
         </div>
     );
 }

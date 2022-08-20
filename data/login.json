@@ -17,7 +17,7 @@
     "FaangProviders":[{
         "logo":"/logos/google.png",
         "title":"Connect",
-        "titleHighlighted":" Google account",
+        "titleHighlighted":"AWS Cognito",
         "linkUrl":"/api/google",
         "color":"#008A61",
         "backgroundColor":"#ffffff"}]

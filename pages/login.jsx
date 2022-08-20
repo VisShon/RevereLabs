@@ -6,8 +6,8 @@ import LoginButton from '../components/LoginButton';
 import login from '../data/login.json'
 
 import {
-  AppContextProps,
-  BlockchainContext,
+    AppContextProps,
+    BlockchainContext,
 } from "../context/BlockchainContext.tsx";
 function Login() {
     const [stepsDone,setStepsDone] = useState(1);
@@ -17,13 +17,13 @@ function Login() {
 
 
     useEffect(()=>
-      {
-         if(connectedAccount) {
-           setStepsDone(2);
-         }
+    {
+        if(connectedAccount) {
+            setStepsDone(2);
+        }
 
 
-      },[connectedAccount]);
+    },[connectedAccount]);
 
     return (
 

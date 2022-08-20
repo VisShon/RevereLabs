@@ -34,7 +34,7 @@ async function deployContract(checkpoints, freelancer, clientAmount, freelancerS
     await contract.deployed()
     console.log("reached5");
     // Done! The contract is deployed.
-};
+}
 
 // Testing
 // deployContract([0, 10, 25, 100], "0x8ad27F8D2185e0e4c412D70cCE7ebbc9C27859F0", "10000000000000000000", "2000000000000000000", "0x8945731dd4c0118d7d4b543ae2825b3de84ce728", "0xe1f74c2d2bacb54ea5edc8b4c564b2c0effd2457");
