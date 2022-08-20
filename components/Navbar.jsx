@@ -1,16 +1,25 @@
-import React,{useEffect,useState} from 'react'
+import React,{useEffect,useState, useContext} from 'react'
 import Button from './Button'
 import Image from 'next/image'
 import '../pages/_document'
 import Link from 'next/link';
-function Navbar() {
-    const [pageLocation,setPageLocation] =useState(null);
-    const [isUserLoggedIn,setIsUserLoggedIn] = useState();
+import {
+    BlockchainContext,
+} from "../context/BlockchainContext.tsx";
 
+import { useRouter } from 'next/router'
+
+function Navbar() {
+    const router = useRouter();
+    const [pageLocation,setPageLocation] =useState(null);
+    const {connectedAccount, setData, data} =
+    useContext(BlockchainContext);
     useEffect(() => {
+
         const getPageLocation = () => {
             const res = new URL(window.location.href).pathname;
-            setIsUserLoggedIn(true&&window.localStorage.getItem('user'))
+            console.log(res);
+
             setPageLocation(res);
         }
         getPageLocation();
@@ -36,8 +45,8 @@ function Navbar() {
                         style={pageLocation=='/daos'?{color:"#1178D7"}:{}}>DAOs</Link>
                     <Link href="https://linktr.ee/reverelabs">Contact Us</Link>
                 </div>
-                {!isUserLoggedIn?<Button Content={'Login'}
-                    Link={'/login'}/>:
+                {!data.isLoggedIn?<Button Content={'Login'}
+                    link={'/login'}/>:
                     <Button Content={'Your Profile'}
                         Link={'/Profile'}/>}
             </div>

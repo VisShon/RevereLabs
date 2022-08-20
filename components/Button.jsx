@@ -1,19 +1,18 @@
 import React from 'react'
 import styles from '../styles/Button.module.scss'
 import Image from 'next/image'
-
-function Button({Content, onClick, Link='',Color}) {
-    console.log({Content, onClick, Link,Color});
+import Link from 'next/link';
+function Button({Content, onClick, link='',Color}) {
+    console.log({Content, onClick, link,Color});
     return (
-        Link==''? <a onClick={onClick}
-            className={styles.button}>
-            {Content}
-        </a>:
+     
+        <Link href={link}>
             <a className={styles.button}
-                href={Link}
+                href={link}
                 style={{backgroundColor:Color}}>
                 {Content}
             </a>
+            </Link> 
     )
 }
 

@@ -82,6 +82,8 @@ export const BlockchainProvider = ({ children }: Props) => {
     };
 
     useEffect(() => {
+
+        console.log(data, "is data")
         checkIsWalletConnected();
         try {
             if(data.address && connectedAccount === data.address){

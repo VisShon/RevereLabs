@@ -5,15 +5,15 @@ import {useRouter} from "next/router";
 import React, {useContext, useEffect} from "react";
 import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider";
 import {BlockchainContext} from "../../context/BlockchainContext.tsx";
-
+import Router from "next/router";
 export default function CognitoCallback() {
     const {data, setData} = useContext(BlockchainContext);
     console.log("data",data);
-    const {asPath} = useRouter();
+    const router = useRouter()
     useEffect(() => {
 
 
-        const access_token = asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
+        const access_token = router.asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
         if (access_token) {
             if (Object.keys(data).length === 0){
                 if (localStorage.getItem("data")) {
@@ -55,11 +55,13 @@ export default function CognitoCallback() {
 
                                 setData({
                                     ...data,
-                                    user: response.data
+                                    user: response.data,
+                                    isLoggedIn: true
                                 })
 
                                 console.log("halla", response.data);
-                                window.location.href = "/";
+                                console.log(" is data" , data);
+                                router.push("/");
                             }
                         }
                     }
@@ -67,7 +69,7 @@ export default function CognitoCallback() {
             };
             handleActualLogin();
         }
-    }, [asPath, data, setData]);
+    }, [router, data, setData]);
 
     return (
         <div>
