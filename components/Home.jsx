@@ -49,13 +49,17 @@ function Home({Projects}) {
 
 
             <div className="flex flex-wrap w-[100%] justify-items-center  relative z-0">
-                {projects?.filter(item=>filters.includes(item.category)||filters.length==1)
-                    .filter(item=>item.title==searchParam||searchParam=='')
-                    .map((project, i) =>(<ProjectCard isGigActive={!project.completed}
-                        jobTitle={project.title}
-                        amount={project.bounty}
-                        descp={project.description}
-                        key={i}/>  ))}
+                {projects?.filter(item=>filters.includes(item.category)||filters.length===1)
+                    .filter(item=>item.title===searchParam||searchParam==='')
+                    .map((project, i) =>(
+                        <ProjectCard isGigActive={!project.completed}
+                            jobTitle={project.title}
+                            amount={project.bounty}
+                            description={project.description}
+                            key={i}
+                            objectId={project.objectId}
+                        />
+                    ))}
             </div>
         </div>
     )

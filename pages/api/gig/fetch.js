@@ -15,6 +15,7 @@ export default async function handler(req, res) {
             issuedBy: gig.get("issuedBy"),
             completed: gig.get("completed"),
             category: gig.get("category"),
+            objectId: gig.id,
         };
     }
     ));

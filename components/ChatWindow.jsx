@@ -27,7 +27,7 @@ function ChatWindow({isClient=true,isFreeLancer=false,isUserLoggedIn=false,detai
         });
         setPosted(true);
         push('/gig/view/'+response.data.id);
-        window.alert("Project posted successfully");
+        console.log("Project posted successfully");
     };
 
 
