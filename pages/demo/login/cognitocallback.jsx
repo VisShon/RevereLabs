@@ -34,6 +34,8 @@ export default function CognitoCallback() {
                                     name: data?.user?.name,
                                     skills: [],
                                     links: [],
+                                    address : data.user.address,
+                                    addType: data.user.addType
                                 });
 
                                 setData({

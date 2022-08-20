@@ -78,6 +78,17 @@ export const BlockchainProvider = ({ children }: Props) => {
 
     useEffect(() => {
         checkIsWalletConnected();
+        try {
+          if(connectedAccount === data.address){
+            console.log("Working perfectly, Both accounts are same");
+            console.log(connectedAccount,data.address);
+          }
+          
+        } catch (error) {
+          console.log("Different accounts");
+          console.log(connectedAccount,data.address);
+          
+        }
     }, [checkIsWalletConnected]);
 
     return (
