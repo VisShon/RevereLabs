@@ -29,7 +29,7 @@ function Checkpoints() {
         {title:'Deliver By',colour:'#EAE4A8'},]
 
     return (
-        <div className="bg-accent h-[100%]  flex justify-between">
+        <div className="bg-[white] h-[100%]  flex justify-between">
 
             <div className="w-[50%] h-[100%] flex flex-col justify-start pt-5">
 
