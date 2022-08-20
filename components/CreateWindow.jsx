@@ -1,33 +1,20 @@
 
 import axios from "axios";
 import {useRouter} from "next/router";
-import React, {useContext, useState, useEffect} from "react";
+import React, {useContext, useState} from "react";
 import Image from 'next/image'
 import {BlockchainContext} from "../context/BlockchainContext.tsx";
 import Button from './Button'
 import AddMember from './AddMember'
-import Chat from "../pages/demo/chat";
+
 function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
 
     const[posted,setPosted] = useState(false);
-    const [people,setPeople] = useState(false);
     const {data, setData} = useContext(BlockchainContext);
     const {push} = useRouter() ;
     const onclickHandlerFreeLancer = () => {
     //handle
     };
-
-    useEffect(() => {
-        axios.get("/api/gig-application/fetch").then((res) => {
-            console.log("sharam aagyi toh", res.data.length,res.data)
-            setPeople(res.data);
-        }
-        ).catch((error) => {
-            console.log("rahe meri saase",error)
-        
-        }    )
-    }, [])
-    
 
     console.log(isOwner);
 
@@ -48,7 +35,7 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
 
     return (
         <div className="relative z-10">
-            {isOwner&& people.length===0&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
+            {isOwner&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
                 <Image src={'/vectors/chat.png'}
                     height={100}
                     width={100}/>
@@ -66,11 +53,13 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
                     }
                 />
             </div>}
-            {isOwner&& people.length!==0&&(
-                <div>
-                    <Chat />
-                </div>
-            )}
+
+            {!posted&&isUserLoggedIn&&<div className="absolute left-2 top-2 backdrop-blur-sm w-[95%] h-[90%] z-20 flex flex-col justify-center items-center pt-10">
+                <h2 className="text-textMain text-[1.5rem] font-[600] font-mada my-5">Post the Gig to add freelancers</h2>
+                <Button Content="Post"
+                    onClick={onPostHandler}/>
+            </div>}
+
             {!isOwner&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
                 <Image src={'/vectors/chat.png'}
                     height={100}
@@ -80,6 +69,7 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
                     Color="#008A61"
                     Onclick={onclickHandlerFreeLancer}/>
             </div>}
+
         </div>
     )
 }

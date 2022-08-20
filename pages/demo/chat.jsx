@@ -1,7 +1,7 @@
 // react functional component
 
 import React, {useEffect} from "react";
-import {goToDirectChat, sendTokenToChat} from "../../../functions/utils";
+import {goToDirectChat, sendTokenToChat} from "../../utils/chat";
 
 
 export default function Chat() {
@@ -9,7 +9,7 @@ export default function Chat() {
     const myRef = React.createRef();
 
     useEffect(() => {
-        if (myRef.current !== undefined)
+        if (myRef.current !== undefined && myRef.current !== null)
             setTimeout(() => {
                 sendTokenToChat(myRef, "hjPCd29UmcrygboePZ0rBUtWgr55_WUT0LhdZlCZo6e");
             }, 2000)
