@@ -12,11 +12,10 @@ function Home({Projects}) {
     const[filters,setFilters]= useState(['*']);
     const [searchParam,setSearchParam] = useState('')
 
-    Projects = [{"title":"TestGig2", "description":"Need to Design a website",
-        "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},]
+    // Projects = [{"title":"TestGig2", "description":"Need to Design a website",
+    //     "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},]
 
     const [projects,setProjects] = useState([]);
-    console.log(projects, "is is data");
 
     useEffect(() => {
         axios.get(
