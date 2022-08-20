@@ -37,7 +37,8 @@
     ],
     "import/prefer-default-export": "off",
     "react/jsx-max-props-per-line": [1, { "maximum": 1 }],
-    "indent": "warn"
+    "indent": "warn",
+    "@typescript-eslint/ban-types": [ "warn"]
 //    "max-len": ["warn", 121]
   }
 }

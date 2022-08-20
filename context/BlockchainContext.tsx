@@ -1,14 +1,16 @@
-import { useEffect, useState, createContext, FC } from "react";
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import React, { useEffect, useState, createContext, } from "react";
 import { ethers } from "ethers";
 import Web3Modal from "web3modal";
 
 export type AppContextProps = {
-  connectedAccount: string | undefined;
-  connectWallet: Function;
-  disconnect: Function;
-  getProvider: Function;
-  loggedin : Boolean;
-  settingLoggedin: Function
+    connectedAccount: string | undefined;
+    connectWallet: Function;
+    disconnect: Function;
+    getProvider: Function;
+    data : object;
+    setData: Function;
 };
 
 export const BlockchainContext = createContext<AppContextProps>(
@@ -24,12 +26,8 @@ export const BlockchainProvider = ({ children }: Props) => {
     string | undefined
   >();
 
-  const [loggedin, setLoggedin] = useState<boolean>(false);
+    const [data, setData] = useState<object>({});
 
-
-  const settingLoggedin = (value: boolean) => {
-    setLoggedin(value);
-  }
 
     const connectWallet = async (firstTime = false) => {
         try {
@@ -84,7 +82,7 @@ export const BlockchainProvider = ({ children }: Props) => {
 
     return (
         <BlockchainContext.Provider
-            value={{ connectWallet, settingLoggedin,  disconnect, getProvider, connectedAccount, loggedin }}
+            value={{ connectWallet, data,  disconnect, getProvider, connectedAccount, setData }}
         >
             {children}
         </BlockchainContext.Provider>

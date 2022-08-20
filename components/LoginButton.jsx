@@ -14,7 +14,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
     const {connectedAccount, connectWallet, disconnect, loggedin, settingLoggedin} =
       useContext(BlockchainContext);
-      const wallet = sequence.initWallet('polygon');
+    const wallet = sequence.initWallet('polygon');
 
 
     async function handlCheck() {
@@ -66,24 +66,24 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
             console.log("dsf");
             connectWallet(true);
         } else if (data.titleHighlighted === ' Sequence wallet'){
-          console.log("here is sequence");
-          wallet = sequence.getWallet();
-          const connectDetails = await wallet.connect({
-            app: 'RevereLabs',
-            authorize: true,
-            // And pass settings if you would like to customize further
-            settings: {
-              theme: "light",
-              bannerUrl: "https://yoursite.com/banner-image.png",  // 3:1 aspect ratio, 1200x400 works best
-              includedPaymentProviders: ["moonpay", "ramp"],
-              defaultFundingCurrency: "matic",
-              lockFundingCurrencyToDefault: false,
-            }
-          })
+            console.log("here is sequence");
+            wallet = sequence.getWallet();
+            const connectDetails = await wallet.connect({
+                app: 'RevereLabs',
+                authorize: true,
+                // And pass settings if you would like to customize further
+                settings: {
+                    theme: "light",
+                    bannerUrl: "https://yoursite.com/banner-image.png",  // 3:1 aspect ratio, 1200x400 works best
+                    includedPaymentProviders: ["moonpay", "ramp"],
+                    defaultFundingCurrency: "matic",
+                    lockFundingCurrencyToDefault: false,
+                }
+            })
 
 
-          console.log('user accepted connect?', connectDetails.connected, connectDetails);
-          console.log('users signed connect proof to valid their account address:', connectDetails.proof);
+            console.log('user accepted connect?', connectDetails.connected, connectDetails);
+            console.log('users signed connect proof to valid their account address:', connectDetails.proof);
 
         }
         else if (data.titleHighlighted === "AWS Cognito") {
