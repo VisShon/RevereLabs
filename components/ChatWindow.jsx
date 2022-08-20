@@ -10,7 +10,9 @@ import Chat from "../pages/demo/chat";
 function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
 
     const[posted,setPosted] = useState(false);
-    const [people,setPeople] = useState(false);
+    const [people,setPeople] = useState(null);
+    const [peopleDets,setPeopleDets] = useState([]);
+    const [ otherUserToken,setOtherUserToken] = useState(null);
     const {data, setData} = useContext(BlockchainContext);
     const {push} = useRouter() ;
     const onclickHandlerFreeLancer = () => {
@@ -23,24 +25,30 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
             setPeople(res.data);
         }
         )
-
-
-        for ( let i = 0; i<people.length;i++){
-            axios.get(`/api/profile/fetch?objectId="${people[i].applicantId}"`).then((res) => {
-                console.log("user value aagyi toh", res.data.length,res.data)
-                setPeople(res.data);
-            }
-            )
-        }
+       
     }, [details])
 
+    useEffect(() => {
+        if (!people)
+        return;
+        const ss = async () => {let q= [];
+        for ( let i = 0; i<people?.length;i++){
+            const res = await axios.get(`/api/profile/fetch?objectId="${people[i]?.applicantId}"`);//.then((res) => {
+            q=[...q, res.data[0]];
+            q[q.length-1].rocketChatId = people[i].rocketChatChannelId;
+        }
+        setPeopleDets(q);
+    };
+    ss();
+    },[people])
+    
 
-    console.log(people," are people");
+    console.log(people,peopleDets," are people");
 
 
     return (
-        <div className="relative z-2">
-            {isOwner&& people.length===0&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
+        <div className="relative z-10">
+            {isOwner&& people?.length===0&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">
                 <Image src={'/vectors/chat.png'}
                     height={100}
                     alt={"sd"}
@@ -60,18 +68,22 @@ function ChatWindow({isUserLoggedIn=false,details,isOwner}) {
                     }
                 />
             </div>}
-            {isOwner&& people.length!==0&&(
+            {isOwner&& people?.length!==0&&(
                 <div>
-                    <select name="cars"
-                        id="cars">
-                        { people?.map((person,index)=> (
+                    <select name="users"
+                        id="users" onChange={(e)=>{
+                            console.log(e.target.value,"poi");
+                            setOtherUserToken(e.target.value);
+
+                        }}>
+                        { peopleDets?.map((person,index)=> (
                             <option key={index}
-                                value="volvo">Volvo</option>
+                                value={person?.rocketChatId}>{person?.name}</option>
                         ))}
 
 
                     </select>
-                    <Chat userToken={data?.user?.rocketChatToken}/>
+                    <Chat userToken={data?.user?.rocketChatToken} otherUserToken={otherUserToken}/>
                 </div>
             )}
             {!isOwner&&<div className="bg-accent relative h-[30rem] w-[25rem] border-[0.5rem] border-[#B8DED3] rounded-md flex flex-col items-center justify-center">

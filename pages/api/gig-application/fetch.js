@@ -14,6 +14,7 @@ export default async function handler(req, res) {
             applicantId: gigApplication.get("applicantId"),
             status: gigApplication.get("status"),
             formalJson: gigApplication.get("formalJson"),
+            rocketChatChannelId: gigApplication.get("rocketChatChannelId"),
         };
     }
     ));
