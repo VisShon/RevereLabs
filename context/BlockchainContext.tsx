@@ -27,6 +27,14 @@ export const BlockchainProvider = ({ children }: Props) => {
   >();
 
     const [data, setData] = useState<object>({});
+    useEffect(() => {
+        if ((data === {} || !(data?.user?.id)) && window && localStorage?.getItem("userdata")) {
+            const user = JSON.parse(localStorage.getItem("userdata"));
+            setData({...data, user, isLoggedIn: true});
+            console.log("data set")
+        }
+    }, [data]);
+
     const connectWallet = async (firstTime = false) => {
         try {
             console.log("Connecting metamask...");

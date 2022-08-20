@@ -18,7 +18,7 @@ function Navbar() {
 
         if(data?.user?.address){
             console.log("sd");
-            
+
 
         }
 
@@ -36,7 +36,7 @@ function Navbar() {
     return (
         <>
             <div className="flex justify-between items-center  p-10 font-Mada text-[1vw] w-[100%] z-10 ">
-                <Link href="https://reverelabs.org/">
+                <Link href="/">
                     <Image src="/logo.png"
                         width={120}
                         height={60}/>

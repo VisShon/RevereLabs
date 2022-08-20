@@ -6,7 +6,6 @@ export default async function handler(req, res) {
         query_params[key] = JSON.parse(req.query[key]);
     }
     const results = await fetchGigs(query_params);
-    console.log(results, "87gbu");
     res.status(200).json(results.map(gig => {
         return {
             title: gig.get("title"),
