@@ -14,7 +14,9 @@ export default async function handler(req, res) {
         // TODO: naman
         // Send prexisting user email
     }
-
+    // this.rocketChatId = null;
+    // this.rocketChatToken = null;
+    // this.rocketChatPassword = null;
     name = user.get("name");
     email = user.get("email");
     skills = user.get("skills");
@@ -22,9 +24,13 @@ export default async function handler(req, res) {
     associations = user.get("associations");
     address = user.get("address");
     addType = user.get("addType");
+    const rocketChatId = user.get("rocketChatId");
+    const rocketChatToken = user.get("rocketChatToken");
+
 
     console.log(user, user.get());
 
 
-    res.status(200).json({ name, skills, links, associations, email, created, address, addType, "id":user.id });
+    res.status(200).json({ name, skills, links, associations, email, created, address, addType, "id":user.id,
+        rocketChatId, rocketChatToken});
 }
