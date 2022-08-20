@@ -7,7 +7,6 @@ function Button({Content, onClick, link='',Color}) {
 
             <Link href={link}>
                 <a className={styles.button}
-                    href={link}
                     style={{backgroundColor: Color}}>
                     {Content}
                 </a>
