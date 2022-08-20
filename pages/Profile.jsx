@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import Image from 'next/image'
 import ProjectCard from '../components/ProjectCard'
 import LinkCarousel from '../components/LinkCarousel'
@@ -6,16 +6,19 @@ import styles from '../styles/Home.module.css'
 import {
     BlockchainContext,
 } from "../context/BlockchainContext.tsx";
+import axios from "axios"
 
 function Profile({Profile}) {
     const { data} =
     useContext(BlockchainContext);
 
+    const [ gigs , setGigs] = useState([]);
+
     console.log(data, "is is data");
-    const[userLinks,setUserLinks] = useState([])
+    const[userLinks,setUserLinks] = useState([]);
     Profile={
-        name:data.user.name,
-        email: data.user.email,
+        name:data?.user?.name,
+        email: data?.user?.email,
         profilePicture:'/profilepic.png',
         projects: [{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"}],
         work:[{"title":"TestGig2", "description":"Need to Design a website", "bounty":"USD400", "time":"2 months", "completed":false,  "category": "Design"},],
@@ -26,6 +29,18 @@ function Profile({Profile}) {
         ],
 
     }
+
+    useEffect(() => {
+        axios.get(
+            "/api/profile"
+        ).then((res) => {
+            console.log(res);
+            setGigs(res.answer);
+        }).catch((error) => {
+            console.log("error", error);
+        })
+
+    }, [] )
 
     return (
         <div className={styles.container}>

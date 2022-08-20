@@ -61,6 +61,7 @@ function LoginButton({APIlink,item,setStepsDone,stepsDone}) {
             console.log("dsf");
             await connectWallet(true);
             setStepsDone(stepsDone + 1);
+
         } else if (item.titleHighlighted === ' Sequence wallet'){
             console.log("here is sequence");
             wallet = sequence.getWallet();
@@ -133,6 +134,9 @@ function LoginButton({APIlink,item,setStepsDone,stepsDone}) {
         // }
     }
 
+    useEffect(() => {
+        handleCheck();
+    }, []);
 
     return (
         <>
