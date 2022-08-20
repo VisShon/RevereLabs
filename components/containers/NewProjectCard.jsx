@@ -7,14 +7,14 @@ import {BlockchainContext} from "../../context/BlockchainContext.tsx";
 function NewProjectCard() {
     const {data, setData} = useContext(BlockchainContext);
 
-    const[details,setDetails] = useState({title:'',descp:'',bounty:'',time:''});
-    const {title,descp,bounty,time} = details;
+    const[details,setDetails] = useState({title:'',description:'',bounty:'',time:''});
+    const {title,description,bounty,time} = details;
 
     console.log(data, 'data');
     console.log(details, 'details');
     useEffect(() => {
         if (data.newProject !== undefined && details.title === '' &&
-            details.descp === '' && details.bounty === '' && details.time === '') {
+            details.description === '' && details.bounty === '' && details.time === '') {
             const {newProject, ...newData} = data;
             console.log(newProject, "newProject");
             setDetails(newProject);
@@ -37,8 +37,8 @@ function NewProjectCard() {
                     <textarea
                         className="border-2 rounded-md px-2 border-textSecondary text-textSecondary  text-[1.25rem] font-[600] h-[60%]"
                         placeholder="Description"
-                        value={descp}
-                        onChange={(e)=>setDetails({...details, descp: e.target.value})}></textarea>
+                        value={description}
+                        onChange={(e)=>setDetails({...details, description: e.target.value})}></textarea>
                 </div>
 
                 <div className="flex flex-col">
@@ -69,7 +69,6 @@ function NewProjectCard() {
                 isUserLoggedIn={data.isLoggedIn}
                 details={details}
                 user={data.user}
-                projectData={details}
             />
         </div>
     )
