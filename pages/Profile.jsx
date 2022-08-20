@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React, { useState, useContext, useEffect } from 'react'
 import Image from 'next/image'
 import ProjectCard from '../components/ProjectCard'
@@ -34,14 +35,21 @@ function Profile({Profile}) {
         axios.get(
             "/api/profile"
         ).then((res) => {
-            console.log(res);
-            setGigs(res.answer);
+            console.log(res.data," is answer");
         }).catch((error) => {
             console.log("error", error);
         })
 
-    }, [] )
+        axios.get(`/api/gig/fetch?issuedBy="${data?.user?.id}"`).then((res) => {
+            console.log("sharam aagyi 2 toh", res.data.length,res.data)
+            setGigs(res.data);
 
+        }
+        )
+
+    }, [data?.user?.id] )
+
+    console.log(gigs);
     return (
         <div className={styles.container}>
             <div className="fixed z-0 top-[5vh] left-0"><Image src="/background/bg3.png"
@@ -86,21 +94,30 @@ function Profile({Profile}) {
                     setUserLinks={setUserLinks} />
             </div>
 
-            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-5">My Projects</h2>
+        
+            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-10">My Taken Work</h2>
             <div className='flex flex-wrap w-[100%] justify-items-center'>
-                {Profile.projects.map((project, i) =>(<ProjectCard isGigActive={!project.completed}
+                {gigs.map((project, i) =>(
+                    project.issuedBy !== data?.user?.id &&
+                <ProjectCard isGigActive={!project.completed}
                     jobTitle={project.title}
                     amount={project.bounty}
                     descp={project.description}
                     key={i}/>  ))} 
             </div>
-            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-10">My Work</h2>
+
+            <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-5">My Given Projects</h2>
             <div className='flex flex-wrap w-[100%] justify-items-center'>
-                {Profile.work.map((project, i) =>(<ProjectCard isGigActive={!project.completed}
-                    jobTitle={project.title}
-                    amount={project.bounty}
-                    descp={project.description}
-                    key={i}/>  ))} 
+                {gigs.map((project, i) =>(
+                    project.issuedBy === data?.user?.id &&   <ProjectCard
+                        project={project}
+                        isGigActive={!project.completed}
+                        jobTitle={project.title}
+                        amount={project.bounty}
+                        descp={project.description}
+                        key={i}/>  
+
+                ))} 
             </div>
 
         </div>
