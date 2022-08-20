@@ -26,5 +26,5 @@ export default async function handler(req, res) {
     console.log(user, user.get());
 
 
-    res.status(200).json({ name, skills, links, associations, email, created, address, addType });
+    res.status(200).json({ name, skills, links, associations, email, created, address, addType, "id":user.id });
 }
