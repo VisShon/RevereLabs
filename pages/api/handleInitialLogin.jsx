@@ -6,7 +6,9 @@ export default async function handler(req, res) {
     let {
         email, name, skills, links, associations, additional, address, addType
     } = req.body;
-    const [user, created] = await createOrUpdateUser(email, name, skills, links, associations, additional, address, addType);
+    let x   =     await createOrUpdateUser(email, name, skills, links, associations, additional, address, addType);
+    console.log("printing", x);
+    const [user, created] = x;
     if (created) {
         // Send welcome email
     }
