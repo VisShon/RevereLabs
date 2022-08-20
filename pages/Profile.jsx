@@ -53,18 +53,22 @@ function Profile({Profile}) {
     return (
         <div className={styles.container}>
             <div className="fixed z-0 top-[5vh] left-0"><Image src="/background/bg3.png"
+                alt={"s"}
                 height="600"
                 width="400" /></div>
             <div className="fixed z-0 top-[5vh] right-[-5rem]"><Image src="/background/bg4.png"
                 height="700"
+                alt={"s"}
                 width="500" /></div>
             <div className="fixed z-0 bottom-0 left-[25%]"><Image src="/background/bg5.png"
+                alt={"s"}
                 height="200"
                 width="700" /></div>
 
             <div className="relative z-10 w-[100%] flex flex-col items-center text-center">
                 <a className="drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] ">
                     <Image src={Profile.profilePicture}
+                        alt={"s"}
                         width="200"
                         height="200"/>
                 </a>

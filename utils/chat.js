@@ -1,5 +1,5 @@
 export const sendTokenToChat = (rocketChatRef, token) => {
-    rocketChatRef.current.contentWindow.postMessage({
+    rocketChatRef?.current?.contentWindow.postMessage({
         externalCommand: 'login-with-token',
         token: token
     }, '*')

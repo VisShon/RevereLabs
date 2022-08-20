@@ -4,15 +4,16 @@ import React, {useEffect} from "react";
 import {goToDirectChat, sendTokenToChat} from "../../utils/chat";
 
 
-export default function Chat() {
+export default function Chat({userToken}) {
+    console.log(userToken,"is uer dtZ");
     // create a ref
     const myRef = React.createRef();
 
     useEffect(() => {
         if (myRef.current !== undefined && myRef.current !== null)
             setTimeout(() => {
-                sendTokenToChat(myRef, "hjPCd29UmcrygboePZ0rBUtWgr55_WUT0LhdZlCZo6e");
-            }, 2000)
+                sendTokenToChat(myRef, userToken);
+            }, 5000)
     }, [myRef])
 
     return (

@@ -6,6 +6,7 @@ import ChatWindow from '../ChatWindow'
 
 
 export default function GigCard({gigId}) {
+    console.log(gigId,"gigiIS")
     const [gig, setGig] = useState({});
     const [ isOwner, setIsOwner] = useState(false);
     const {data} =
@@ -17,13 +18,14 @@ export default function GigCard({gigId}) {
     }, [gigId]);
 
     useEffect(() => {
-        console.log("test", gig.issuedBy,data.user.id );
-        if( gig.issuedBy===data.user.id ){
+        console.log("test", gig?.issuedBy,data?.user?.id );
+        if( gig?.issuedBy===data?.user?.id ){
             setIsOwner(true);
         }
 
     }, [data, gig]);
-
+    if(!gig )
+        return <div> Please Wait....</div>
     return (
         <div className="flex relative z-10 justify-between px-10 py-12 w-[55%] h-[60vh] bg-[#ffffff]  border-4 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
 

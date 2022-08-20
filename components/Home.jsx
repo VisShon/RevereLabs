@@ -58,6 +58,7 @@ function Home({Projects}) {
                             description={project.description}
                             key={i}
                             objectId={project.objectId}
+                            project ={project}
                         />
                     ))}
             </div>
