@@ -1,16 +1,14 @@
 import React, {useEffect, useContext} from 'react'
 import Image from 'next/image'
-import axios from 'axios'
 import web3 from "web3";
 import {
-    AppContextProps,
     BlockchainContext,
 } from "../context/BlockchainContext.tsx";
 import { sequence } from "0xsequence";
 
 
 
-function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
+function LoginButton({APIlink,item,setStepsDone,stepsDone}) {
 
     const { connectWallet, data} =
       useContext(BlockchainContext);
@@ -18,10 +16,10 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
 
     function login_redirect() {
-      localStorage.setItem("data",JSON.stringify(data));
-      const callback_url = "http://localhost:3000/login/cognitocallback";
-      window.location = `https://reverelabs.auth.ap-south-1.amazoncognito.com/login?client_id=69li1ve6kfpq02uv7vo3fhvgb6&response_type=token&redirect_uri=${callback_url}`;
-  }
+        localStorage.setItem("data",JSON.stringify(data));
+        const callback_url = "http://localhost:3000/login/cognitocallback";
+        window.location = `https://reverelabs.auth.ap-south-1.amazoncognito.com/login?client_id=69li1ve6kfpq02uv7vo3fhvgb6&response_type=token&redirect_uri=${callback_url}`;
+    }
 
     async function handleCheck() {
         let chainId = 80001;
@@ -58,21 +56,12 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         }
     }
 
-    // useEffect(() => {
-    //     handlCheck();
-    // // if (connectedAccount) {
-    // //   console.log(connectedAccount);
-    // //   router.push("/Profile");
-    // // }
-    // });
-
     const onClicked = async () => {
-        console.log("metamask", data);
-        if (data.titleHighlighted === " Metamask wallet") {
+        if (item.titleHighlighted === " Metamask wallet") {
             console.log("dsf");
             await connectWallet(true);
             setStepsDone(stepsDone + 1);
-        } else if (data.titleHighlighted === ' Sequence wallet'){
+        } else if (item.titleHighlighted === ' Sequence wallet'){
             console.log("here is sequence");
             wallet = sequence.getWallet();
             const connectDetails = await wallet.connect({
@@ -93,7 +82,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
             console.log('users signed connect proof to valid their account address:', connectDetails.proof);
 
         }
-        else if (data.titleHighlighted === "AWS Cognito") {
+        else if (item.titleHighlighted === "AWS Cognito") {
             login_redirect();
 
         }
@@ -149,12 +138,12 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         <>
             <button onClick={onClicked}
                 className="w-[20rem] h-[5rem] mt-5 flex justify-center items-center rounded-[8px] hover:drop-shadow-[5px_5px_0px_rgba(159,159,159,1)]"
-                style={{backgroundColor: data.backgroundColor}}>
-                <Image src={data.logo}
+                style={{backgroundColor: item.backgroundColor}}>
+                <Image src={item.logo}
                     height="40"
                     width="50"/>
-                <span className="ml-10 font-mada font-[600] text-textMain">{data.title} <span
-                    style={{color: data.color}}>{" " + data.titleHighlighted}</span></span>
+                <span className="ml-10 font-mada font-[600] text-textMain">{item.title} <span
+                    style={{color: item.color}}>{" " + item.titleHighlighted}</span></span>
             </button>
         </>
     )

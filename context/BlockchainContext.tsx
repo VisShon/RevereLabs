@@ -37,12 +37,12 @@ export const BlockchainProvider = ({ children }: Props) => {
             console.log(accounts)
             if (accounts) {
                 setConnectedAccount(accounts[0]);
-                setData({...data , 
-                user :{
-                  ...(data.user),
-                  address:accounts[0],
-                  addType: 'metamask'
-                }
+                setData({...data ,
+                    user :{
+                        ...(data.user),
+                        address:accounts[0],
+                        addType: 'metamask'
+                    }
                 })
 
                 if (firstTime) {
@@ -84,15 +84,15 @@ export const BlockchainProvider = ({ children }: Props) => {
     useEffect(() => {
         checkIsWalletConnected();
         try {
-          if(connectedAccount === data.address){
-            console.log("Working perfectly, Both accounts are same");
-            console.log(connectedAccount,data.address);
-          }
-          
+            if(data.address && connectedAccount === data.address){
+                console.log("Working perfectly, Both accounts are same");
+                console.log(connectedAccount,data.address);
+            }
+
         } catch (error) {
-          console.log("Different accounts");
-          console.log(connectedAccount,data.address);
-          
+            console.log("Different accounts");
+            console.log(connectedAccount,data.address);
+
         }
     }, [checkIsWalletConnected]);
 

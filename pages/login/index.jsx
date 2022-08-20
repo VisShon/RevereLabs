@@ -53,7 +53,7 @@ function Login() {
                     {stepsDone===2&&<>
                         {login.Web3Providers.map((item, i)=>(
                             <LoginButton APIlink={'#'}
-                                data={item}
+                                item={item}
                                 setStepsDone={setStepsDone}
                                 stepsDone={stepsDone}
                                 key={i}/>
@@ -63,7 +63,7 @@ function Login() {
                     {stepsDone===3&&<>
                         {login.FaangProviders.map((item, i)=>(
                             <LoginButton APIlink={'#'}
-                                data={item}
+                                item={item}
                                 setStepsDone={setStepsDone}
                                 stepsDone={stepsDone}
                                 key={i}/>
