@@ -97,7 +97,7 @@ function Profile({Profile}) {
         
             <h2 className="text-main font-mada font-[700] text-[2.5rem] mx-10 relative z-10">My Taken Work</h2>
             <div className='flex flex-wrap w-[100%] justify-items-center'>
-                {Profile.work.map((project, i) =>(
+                {gigs.map((project, i) =>(
                     project.issuedBy !== data?.user?.id &&
                 <ProjectCard isGigActive={!project.completed}
                     jobTitle={project.title}
