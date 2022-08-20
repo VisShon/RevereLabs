@@ -7,7 +7,7 @@ passport.use('google',new GoogleStrategy({
     clientID:process.env.GOOGLE_CLIENT_ID,
     clientSecret:process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: "http://localhost:3000/api/google/callback",
-  },async(accessToken,refreshToken,profile,done) => {
+},async(accessToken,refreshToken,profile,done) => {
     try {
         const obj = await User.findOne({email: profile.email});
         if (!obj){
@@ -44,5 +44,5 @@ passport.use('google',new GoogleStrategy({
         console.error(err);
         done(err,false,{message: "Internal Server Error"});
     }
-  }
+}
 ));

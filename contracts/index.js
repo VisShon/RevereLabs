@@ -14,7 +14,7 @@ async function deployContract(checkpoints, freelancer, clientAmount, freelancerS
 
     const provider = new ethers.providers.Web3Provider(window.ethereum)
 
-// MetaMask requires requesting permission to connect users accounts
+    // MetaMask requires requesting permission to connect users accounts
     await provider.send("eth_requestAccounts", []);
 
     const signer = provider.getSigner()
