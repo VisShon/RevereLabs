@@ -1,17 +1,16 @@
 import React, {useEffect, useContext, useState}  from 'react'
 import Image from 'next/image';
-import Progress from '../components/Progress'
-import style from '../styles/LogInCard.module.scss'
-import LoginButton from '../components/LoginButton';
-import login from '../data/login.json'
+import Progress from '../../components/Progress'
+import style from '../../styles/LogInCard.module.scss'
+import LoginButton from '../../components/LoginButton';
+import login from '../../data/login.json'
 
 import {
-    AppContextProps,
     BlockchainContext,
-} from "../context/BlockchainContext.tsx";
+} from "../../context/BlockchainContext.tsx";
 function Login() {
     const [stepsDone,setStepsDone] = useState(1);
-    const {connectedAccount, connectWallet, disconnect} =
+    const {connectedAccount, setData, data} =
       useContext(BlockchainContext);
     const [name,setName] = useState('')
 
@@ -20,10 +19,11 @@ function Login() {
         if(connectedAccount) {
             setStepsDone(2);
         }
-},[connectedAccount]);
+    },[connectedAccount]);
 
     const saveName = () => {
-        //handle
+        setData({...data, user: {name}})
+        setStepsDone(2);
     }
 
 
@@ -34,9 +34,19 @@ function Login() {
                 <Progress steps={3}
                     stepsDone={stepsDone}/>
                 <div className="relative z-10 mt-10 flex flex-col justify-center items-center w-[45rem] h-[30rem] bg-[#9DCEFB]  border-2 rounded-[5px] drop-shadow-[10px_10px_0px_rgba(0,0,0,1)]">
-                    {stepsDone==1&&<>
-                        <Image src={'/vectors/user.png'} height={100} width={100}/>
-                        <input value={name} onKeyDown={saveName} onChange={(e)=>setName(e.target.value)} placeholder="Enter Your Name" type="search" className="p-1 border-2 rounded-md cursor-text drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] mt-10  bg-[#ffffff]"/>
+                    {stepsDone===1&&<>
+                        <Image src={'/vectors/user.png'}
+                            height={100}
+                            width={100}/>
+                        <form onSubmit={saveName}>
+                            <input
+                                value={name}
+                                onChange={(e)=>setName(e.target.value)}
+                                placeholder="Enter Your Name"
+                                type="search"
+                                className="p-1 border-2 rounded-md cursor-text drop-shadow-[5px_5px_0px_rgba(0,0,0,1)] mt-10  bg-[#ffffff]"
+                            />
+                        </form>
                         <h2 className="font-mada font-[500] w-[60%] mt-10">we need your  Wallets for setting up the escrow services only when you sign an agreement.</h2>
                     </>}
                     {stepsDone===2&&<>

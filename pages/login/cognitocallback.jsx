@@ -4,7 +4,7 @@ import axios from "axios";
 import {useRouter} from "next/router";
 import React, {useContext, useEffect} from "react";
 import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider";
-import {BlockchainContext} from "../../../context/BlockchainContext"; // ES Modules import
+import {BlockchainContext} from "../../context/BlockchainContext"; // ES Modules import
 
 export default function CognitoCallback() {
     const {data, setData} = useContext(BlockchainContext);

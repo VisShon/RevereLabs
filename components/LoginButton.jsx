@@ -6,9 +6,12 @@ import {
     AppContextProps,
     BlockchainContext,
 } from "../context/BlockchainContext.tsx";
-import {login_redirect} from "../pages/demo/login";
 import { sequence } from "0xsequence";
 
+function login_redirect() {
+    const callback_url = "http://localhost:3000/login/cognitocallback";
+    window.location = `https://reverelabs.auth.ap-south-1.amazoncognito.com/login?client_id=69li1ve6kfpq02uv7vo3fhvgb6&response_type=token&redirect_uri=${callback_url}`;
+}
 
 function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
@@ -17,7 +20,7 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
     let wallet = sequence.initWallet('polygon');
 
 
-    async function handlCheck() {
+    async function handleCheck() {
         let chainId = 80001;
 
         if (window.ethereum.networkVersion !== chainId) {
@@ -64,7 +67,8 @@ function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
         console.log("metamask", data);
         if (data.titleHighlighted === " Metamask wallet") {
             console.log("dsf");
-            connectWallet(true);
+            await connectWallet(true);
+            setStepsDone(stepsDone + 1);
         } else if (data.titleHighlighted === ' Sequence wallet'){
             console.log("here is sequence");
             wallet = sequence.getWallet();
