@@ -7,6 +7,8 @@ export type AppContextProps = {
   connectWallet: Function;
   disconnect: Function;
   getProvider: Function;
+  loggedin : Boolean;
+  settingLoggedin: Function
 };
 
 export const BlockchainContext = createContext<AppContextProps>(
@@ -21,6 +23,13 @@ export const BlockchainProvider = ({ children }: Props) => {
     const [connectedAccount, setConnectedAccount] = useState<
     string | undefined
   >();
+
+  const [loggedin, setLoggedin] = useState<boolean>(false);
+
+
+  const settingLoggedin = (value: boolean) => {
+    setLoggedin(value);
+  }
 
     const connectWallet = async (firstTime = false) => {
         try {
@@ -65,7 +74,7 @@ export const BlockchainProvider = ({ children }: Props) => {
 
         if (connected != null) {
             console.log("connected ", connected);
-            connectWallet();
+            // connectWallet();
         }
     };
 
@@ -75,7 +84,7 @@ export const BlockchainProvider = ({ children }: Props) => {
 
     return (
         <BlockchainContext.Provider
-            value={{ connectWallet, disconnect, getProvider, connectedAccount }}
+            value={{ connectWallet, settingLoggedin,  disconnect, getProvider, connectedAccount, loggedin }}
         >
             {children}
         </BlockchainContext.Provider>

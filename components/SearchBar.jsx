@@ -9,7 +9,7 @@ function SearchBar({searchParam,setSearchParam}) {
         <div className="relative w-[12rem] z-[10]">
             <a onClick={()=>{setSearchParam(value); console.log(searchParam)}}
                 className="absolute right-2 z-[10] top-1 drop-shadow-[2px_2px_0px_rgba(0,0,0,1)] active:drop-shadow-[1px_1px_0px_rgba(0,0,0,1)] cursor-pointer" >
-                <Image src={'/search.png'}
+                <Image src={'/vectors/search.png'}
                     height={25}
                     width={25} />
             </a>
