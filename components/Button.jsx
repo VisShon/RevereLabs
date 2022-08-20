@@ -3,6 +3,7 @@ import styles from '../styles/Button.module.scss'
 import Image from 'next/image'
 
 function Button({Content, onClick, Link='',Color}) {
+    console.log({Content, onClick, Link,Color});
     return (
         Link==''? <a onClick={onClick}
             className={styles.button}>

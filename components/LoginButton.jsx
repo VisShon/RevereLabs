@@ -8,17 +8,20 @@ import {
 } from "../context/BlockchainContext.tsx";
 import { sequence } from "0xsequence";
 
-function login_redirect() {
-    const callback_url = "http://localhost:3000/login/cognitocallback";
-    window.location = `https://reverelabs.auth.ap-south-1.amazoncognito.com/login?client_id=69li1ve6kfpq02uv7vo3fhvgb6&response_type=token&redirect_uri=${callback_url}`;
-}
+
 
 function LoginButton({APIlink,data,setStepsDone,stepsDone}) {
 
-    const { connectWallet,} =
+    const { connectWallet, data} =
       useContext(BlockchainContext);
     let wallet = sequence.initWallet('polygon');
 
+
+    function login_redirect() {
+      localStorage.setItem("data",JSON.stringify(data));
+      const callback_url = "http://localhost:3000/login/cognitocallback";
+      window.location = `https://reverelabs.auth.ap-south-1.amazoncognito.com/login?client_id=69li1ve6kfpq02uv7vo3fhvgb6&response_type=token&redirect_uri=${callback_url}`;
+  }
 
     async function handleCheck() {
         let chainId = 80001;

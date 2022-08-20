@@ -22,10 +22,11 @@ function Login() {
     },[connectedAccount]);
 
     const saveName = () => {
-        setData({...data, user: {name}})
+        setData({...data, "user": {name}});
         setStepsDone(2);
     }
 
+    console.log( name,data);
 
     return (
 

@@ -27,8 +27,6 @@ export const BlockchainProvider = ({ children }: Props) => {
   >();
 
     const [data, setData] = useState<object>({});
-
-
     const connectWallet = async (firstTime = false) => {
         try {
             console.log("Connecting metamask...");
@@ -39,6 +37,13 @@ export const BlockchainProvider = ({ children }: Props) => {
             console.log(accounts)
             if (accounts) {
                 setConnectedAccount(accounts[0]);
+                setData({...data , 
+                user :{
+                  ...(data.user),
+                  address:accounts[0],
+                  addType: 'metamask'
+                }
+                })
 
                 if (firstTime) {
                     localStorage.setItem("connected", accounts[0]);
@@ -93,7 +98,7 @@ export const BlockchainProvider = ({ children }: Props) => {
 
     return (
         <BlockchainContext.Provider
-            value={{ connectWallet, data,  disconnect, getProvider, connectedAccount, setData }}
+            value={{ connectWallet, data, disconnect, getProvider, connectedAccount, setData }}
         >
             {children}
         </BlockchainContext.Provider>

@@ -4,15 +4,21 @@ import axios from "axios";
 import {useRouter} from "next/router";
 import React, {useContext, useEffect} from "react";
 import { CognitoIdentityProviderClient, GetUserCommand } from "@aws-sdk/client-cognito-identity-provider";
-import {BlockchainContext} from "../../context/BlockchainContext"; // ES Modules import
+import {BlockchainContext} from "../../context/BlockchainContext.tsx"; // ES Modules import
+import { local } from "web3modal";
 
 export default function CognitoCallback() {
     const {data, setData} = useContext(BlockchainContext);
+    console.log("data",data);
     const {asPath} = useRouter();
     useEffect(() => {
+
+
         const access_token = asPath.split("#")[1]?.split("access_token=")[1]?.split("&")[0];
         if (access_token) {
-            // get user details using AWS cognito code
+            const data = localStorage.getItem("data");
+            setData(data);
+            localStorage.removeItem("data");            // get user details using AWS cognito code
             const cognitoIdentityProviderClient = new CognitoIdentityProviderClient({
                 region: "ap-south-1",
             });
@@ -31,7 +37,7 @@ export default function CognitoCallback() {
                                 console.log("Calling cognitoAPI")
                                 const response = await axios.post("/api/handleInitialLogin", {
                                     email,
-                                    name: data?.user?.name,
+                                    name: data.user.name,
                                     skills: [],
                                     links: [],
                                     address : data.user.address,
