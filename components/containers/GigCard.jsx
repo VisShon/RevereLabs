@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, {useState, useEffect, useContext} from "react";
 import Image from 'next/image'
-import {BlockchainContext} from "../../context/BlockchainContext";
+import {BlockchainContext} from "../../context/BlockchainContext.tsx";
 import ChatWindow from '../ChatWindow'
 
 
@@ -10,7 +10,7 @@ export default function GigCard({gigId}) {
     const {data} =
       useContext(BlockchainContext);
     useEffect(() => {
-        axios.get(`/api/gig/${gigId}`).then(res => {
+        axios.get(`/api/gig/get?gigId=${gigId}`).then(res => {
             setGig(res.data);
         })
     }, [gigId]);
