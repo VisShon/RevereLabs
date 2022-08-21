@@ -12,7 +12,7 @@ export const goToDirectChat = (rocketChatRef, chatId) => {
     }, '*')
 }
 
-export const goToDirectChat = (rocketChatRef, chatId) => {
+export const goToChannelChat = (rocketChatRef, chatId) => {
     rocketChatRef.current.contentWindow.postMessage({
         externalCommand: 'go',
         path: `/channel/${chatId}`
